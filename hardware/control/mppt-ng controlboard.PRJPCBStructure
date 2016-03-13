@@ -1,0 +1,5 @@
+Record=SheetSymbol|SourceDocument=TopLevel.Sch|Designator=MSP430F149|SchDesignator=MSP430F149|FileName=MSP430F149.SCHDOC
+Record=SheetSymbol|SourceDocument=TopLevel.Sch|Designator=U_3V3-CAN|SchDesignator=U_3V3-CAN|FileName=3V3-CAN.SchDoc
+Record=SheetSymbol|SourceDocument=TopLevel.Sch|Designator=U_3V3SwitchingRegulator|SchDesignator=U_3V3SwitchingRegulator|FileName=3V3SwitchingRegulator.SchDoc
+Record=SheetSymbol|SourceDocument=TopLevel.Sch|Designator=U_MAXII|SchDesignator=U_MAXII|FileName=MAXII.SCHDOC
+Record=TopLevelDocument|FileName=TopLevel.Sch

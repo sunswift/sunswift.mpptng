@@ -1,0 +1,2863 @@
+Version 9.0 Build 184 04/29/2009 Service Pack 1 SJ Web Edition
+42
+3050
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+inblock
+# storage
+db|NgControlCpld.(1).cnf
+db|NgControlCpld.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+inblock.v
+628bacefa669b254f4e1bec0c251bc58
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+inblock:inblock
+}
+# macro_sequence
+
+# end
+# entity
+sreg16
+# storage
+db|NgControlCpld.(2).cnf
+db|NgControlCpld.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+sreg16.v
+8f8bc6a7497485602daa919ede4922
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+inblock:inblock|sreg16:SHIFT
+}
+# macro_sequence
+
+# end
+# entity
+edecode4
+# storage
+db|NgControlCpld.(4).cnf
+db|NgControlCpld.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+edecode4.v
+c2ac44af70b691461cec99ca1d286ff2
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+inblock:inblock|edecode4:BOARDSEL
+}
+# macro_sequence
+
+# end
+# entity
+decode_ndf
+# storage
+db|NgControlCpld.(6).cnf
+db|NgControlCpld.(6).cnf
+# case_insensitive
+# source_file
+db|decode_ndf.tdf
+6ab93b9692b6399b868d2d6fa7de5
+7
+# used_port {
+eq3
+-1
+3
+eq2
+-1
+3
+eq1
+-1
+3
+eq0
+-1
+3
+enable
+-1
+3
+data1
+-1
+3
+data0
+-1
+3
+}
+# hierarchies {
+inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component|decode_ndf:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+edecode5
+# storage
+db|NgControlCpld.(8).cnf
+db|NgControlCpld.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+edecode5.v
+58cdb55624daf1e0e428e0463d289482
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|edecode5:DECODE
+}
+# macro_sequence
+
+# end
+# entity
+decode_sdf
+# storage
+db|NgControlCpld.(10).cnf
+db|NgControlCpld.(10).cnf
+# case_insensitive
+# source_file
+db|decode_sdf.tdf
+fc6325899844332fc8e3ec3daab766f
+7
+# used_port {
+eq7
+-1
+3
+eq6
+-1
+3
+eq5
+-1
+3
+eq4
+-1
+3
+eq3
+-1
+3
+eq2
+-1
+3
+eq1
+-1
+3
+eq0
+-1
+3
+enable
+-1
+3
+data2
+-1
+3
+data1
+-1
+3
+data0
+-1
+3
+}
+# hierarchies {
+board:board|edecode5:DECODE|lpm_decode:lpm_decode_component|decode_sdf:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+reg11
+# storage
+db|NgControlCpld.(11).cnf
+db|NgControlCpld.(11).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+reg11.v
+196171bf50385e3ea4d915b29027aceb
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|reg11:period_reg
+board:board|reg11:aux_length_reg
+board:board|reg11:aux_overlap_reg
+board:board|reg11:main_length_reg
+board:board|reg11:dead_time_reg
+board:board|signal:AUXSIG|reg11:setreg
+board:board|signal:AUXSIG|reg11:retreg
+board:board|signal:MAINSIG|reg11:setreg
+board:board|signal:MAINSIG|reg11:retreg
+board:board|signal:DIODESIG|reg11:setreg
+board:board|signal:DIODESIG|reg11:retreg
+}
+# macro_sequence
+
+# end
+# entity
+counter
+# storage
+db|NgControlCpld.(12).cnf
+db|NgControlCpld.(12).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+counter.v
+df11e97ca15139b9f16cd5a91ade883c
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|counter:count
+}
+# macro_sequence
+
+# end
+# entity
+count11
+# storage
+db|NgControlCpld.(13).cnf
+db|NgControlCpld.(13).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+count11.v
+a5332ddb9606836ec6177c8ce30c7b
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|counter:count|count11:count11
+}
+# macro_sequence
+
+# end
+# entity
+cntr_aci
+# storage
+db|NgControlCpld.(15).cnf
+db|NgControlCpld.(15).cnf
+# case_insensitive
+# source_file
+db|cntr_aci.tdf
+49f74b7dbdabe196df07f595c95597
+7
+# used_port {
+sclr
+-1
+3
+q9
+-1
+3
+q8
+-1
+3
+q7
+-1
+3
+q6
+-1
+3
+q5
+-1
+3
+q4
+-1
+3
+q3
+-1
+3
+q2
+-1
+3
+q10
+-1
+3
+q1
+-1
+3
+q0
+-1
+3
+cnt_en
+-1
+3
+clock
+-1
+3
+}
+# hierarchies {
+board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_aci:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+gte11
+# storage
+db|NgControlCpld.(16).cnf
+db|NgControlCpld.(16).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+gte11.v
+1b17d534c9d67173cde1d1f58c524b1
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|counter:count|gte11:detect
+}
+# macro_sequence
+
+# end
+# entity
+cmpr_n8g
+# storage
+db|NgControlCpld.(18).cnf
+db|NgControlCpld.(18).cnf
+# case_insensitive
+# source_file
+db|cmpr_n8g.tdf
+e34a11a33adf5309fb34152b04677
+7
+# used_port {
+datab9
+-1
+3
+datab8
+-1
+3
+datab7
+-1
+3
+datab6
+-1
+3
+datab5
+-1
+3
+datab4
+-1
+3
+datab3
+-1
+3
+datab2
+-1
+3
+datab10
+-1
+3
+datab1
+-1
+3
+datab0
+-1
+3
+dataa9
+-1
+3
+dataa8
+-1
+3
+dataa7
+-1
+3
+dataa6
+-1
+3
+dataa5
+-1
+3
+dataa4
+-1
+3
+dataa3
+-1
+3
+dataa2
+-1
+3
+dataa10
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+ageb
+-1
+3
+}
+# hierarchies {
+board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|cmpr_n8g:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+slpf
+# storage
+db|NgControlCpld.(19).cnf
+db|NgControlCpld.(19).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+slpf.v
+eb5ffd2af166c6ba6491d7a4f163ced
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|counter:count|slpf:cleaner
+}
+# macro_sequence
+
+# end
+# entity
+sub11
+# storage
+db|NgControlCpld.(20).cnf
+db|NgControlCpld.(20).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+sub11.v
+b3dd6cd133cedf01b741e7566c2ed2c
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|sub11:comb_13
+board:board|sub11:comb_16
+}
+# macro_sequence
+
+# end
+# entity
+add11
+# storage
+db|NgControlCpld.(27).cnf
+db|NgControlCpld.(27).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+add11.v
+4388ca59230ea10f6aa9ec2b3813f5
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|add11:comb_14
+board:board|add11:comb_15
+}
+# macro_sequence
+
+# end
+# entity
+signal
+# storage
+db|NgControlCpld.(30).cnf
+db|NgControlCpld.(30).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+signal.v
+8a68f9a8f64eb19a9edaf722c205ded
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|signal:AUXSIG
+board:board|signal:MAINSIG
+board:board|signal:DIODESIG
+}
+# macro_sequence
+
+# end
+# entity
+gt11
+# storage
+db|NgControlCpld.(31).cnf
+db|NgControlCpld.(31).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+gt11.v
+ad47e539528f768455472decafe9bf
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|signal:AUXSIG|gt11:setcomp
+board:board|signal:AUXSIG|gt11:srcomp
+board:board|signal:MAINSIG|gt11:setcomp
+board:board|signal:MAINSIG|gt11:srcomp
+board:board|signal:DIODESIG|gt11:setcomp
+board:board|signal:DIODESIG|gt11:srcomp
+}
+# macro_sequence
+
+# end
+# entity
+cmpr_i5g
+# storage
+db|NgControlCpld.(33).cnf
+db|NgControlCpld.(33).cnf
+# case_insensitive
+# source_file
+db|cmpr_i5g.tdf
+839ee8292ae7eb10daaedad2e1960
+7
+# used_port {
+datab9
+-1
+3
+datab8
+-1
+3
+datab7
+-1
+3
+datab6
+-1
+3
+datab5
+-1
+3
+datab4
+-1
+3
+datab3
+-1
+3
+datab2
+-1
+3
+datab10
+-1
+3
+datab1
+-1
+3
+datab0
+-1
+3
+dataa9
+-1
+3
+dataa8
+-1
+3
+dataa7
+-1
+3
+dataa6
+-1
+3
+dataa5
+-1
+3
+dataa4
+-1
+3
+dataa3
+-1
+3
+dataa2
+-1
+3
+dataa10
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+agb
+-1
+3
+}
+# hierarchies {
+board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated
+board:board|signal:AUXSIG|gt11:srcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated
+board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated
+board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated
+board:board|signal:DIODESIG|gt11:setcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated
+board:board|signal:DIODESIG|gt11:srcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+lt11
+# storage
+db|NgControlCpld.(34).cnf
+db|NgControlCpld.(34).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+lt11.v
+622bed37d06ec0a69b184878963e864e
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|signal:AUXSIG|lt11:retcomp
+board:board|signal:MAINSIG|lt11:retcomp
+board:board|signal:DIODESIG|lt11:retcomp
+}
+# macro_sequence
+
+# end
+# entity
+cmpr_n5g
+# storage
+db|NgControlCpld.(36).cnf
+db|NgControlCpld.(36).cnf
+# case_insensitive
+# source_file
+db|cmpr_n5g.tdf
+829d2e5fcd17a4fbb87b313ccf2b1a2e
+7
+# used_port {
+datab9
+-1
+3
+datab8
+-1
+3
+datab7
+-1
+3
+datab6
+-1
+3
+datab5
+-1
+3
+datab4
+-1
+3
+datab3
+-1
+3
+datab2
+-1
+3
+datab10
+-1
+3
+datab1
+-1
+3
+datab0
+-1
+3
+dataa9
+-1
+3
+dataa8
+-1
+3
+dataa7
+-1
+3
+dataa6
+-1
+3
+dataa5
+-1
+3
+dataa4
+-1
+3
+dataa3
+-1
+3
+dataa2
+-1
+3
+dataa10
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+alb
+-1
+3
+}
+# hierarchies {
+board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|cmpr_n5g:auto_generated
+board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|cmpr_n5g:auto_generated
+board:board|signal:DIODESIG|lt11:retcomp|lpm_compare:lpm_compare_component|cmpr_n5g:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+mux1
+# storage
+db|NgControlCpld.(37).cnf
+db|NgControlCpld.(37).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+mux1.v
+84264d1a91c27b348d7e96252873f3
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|signal:AUXSIG|mux1:mux1
+board:board|signal:MAINSIG|mux1:mux1
+board:board|signal:DIODESIG|mux1:mux1
+}
+# macro_sequence
+
+# end
+# entity
+mux_e9c
+# storage
+db|NgControlCpld.(39).cnf
+db|NgControlCpld.(39).cnf
+# case_insensitive
+# source_file
+db|mux_e9c.tdf
+c9491dc8b2a2aa72716d5696c8879a
+7
+# used_port {
+sel0
+-1
+3
+result0
+-1
+3
+data1
+-1
+3
+data0
+-1
+3
+}
+# hierarchies {
+board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component|mux_e9c:auto_generated
+board:board|signal:MAINSIG|mux1:mux1|lpm_mux:lpm_mux_component|mux_e9c:auto_generated
+board:board|signal:DIODESIG|mux1:mux1|lpm_mux:lpm_mux_component|mux_e9c:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+lpf
+# storage
+db|NgControlCpld.(40).cnf
+db|NgControlCpld.(40).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+lpf.v
+ba1caf732dbd152eaac80e6d77911f
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board|signal:AUXSIG|lpf:cleangate
+board:board|signal:MAINSIG|lpf:cleangate
+board:board|signal:DIODESIG|lpf:cleangate
+}
+# macro_sequence
+
+# end
+# entity
+lpm_shiftreg
+# storage
+db|NgControlCpld.(3).cnf
+db|NgControlCpld.(3).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_shiftreg.tdf
+a62c12a1f56d4f69c688bc5237e03342
+7
+# user_parameter {
+LPM_WIDTH
+16
+PARAMETER_SIGNED_DEC
+USR
+LPM_DIRECTION
+LEFT
+PARAMETER_UNKNOWN
+USR
+LPM_AVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+LPM_SVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+shiftin
+-1
+3
+sclr
+-1
+3
+q
+-1
+3
+enable
+-1
+3
+clock
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_constant.inc
+dcde44eee59335c1e2fe75d574f9646
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|dffeea.inc
+55d29d20f7e852c37746bec4e2495ec
+}
+# hierarchies {
+inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component
+}
+# macro_sequence
+
+# end
+# entity
+lpm_decode
+# storage
+db|NgControlCpld.(5).cnf
+db|NgControlCpld.(5).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_decode.tdf
+6d8aa4c01cff4bfb965e46325536f3cb
+7
+# user_parameter {
+LPM_WIDTH
+2
+PARAMETER_SIGNED_DEC
+USR
+LPM_DECODES
+4
+PARAMETER_SIGNED_DEC
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+CASCADE_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+decode_ndf
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+eq
+-1
+3
+enable
+-1
+3
+data
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_constant.inc
+dcde44eee59335c1e2fe75d574f9646
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_compare.inc
+aec4ea1b78f4cda1c3effe18f1abbf63
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|declut.inc
+b1d5939399e5c04dfe1d209af8cc490
+}
+# hierarchies {
+inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component
+}
+# macro_sequence
+
+# end
+# entity
+board
+# storage
+db|NgControlCpld.(7).cnf
+db|NgControlCpld.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+board.v
+409c9c8e738132e79479b756e82b97e
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+board:board
+}
+# macro_sequence
+
+# end
+# entity
+lpm_decode
+# storage
+db|NgControlCpld.(9).cnf
+db|NgControlCpld.(9).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_decode.tdf
+6d8aa4c01cff4bfb965e46325536f3cb
+7
+# user_parameter {
+LPM_WIDTH
+3
+PARAMETER_SIGNED_DEC
+USR
+LPM_DECODES
+8
+PARAMETER_SIGNED_DEC
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+CASCADE_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+decode_sdf
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+eq
+-1
+3
+enable
+-1
+3
+data
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_constant.inc
+dcde44eee59335c1e2fe75d574f9646
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_compare.inc
+aec4ea1b78f4cda1c3effe18f1abbf63
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|declut.inc
+b1d5939399e5c04dfe1d209af8cc490
+}
+# hierarchies {
+board:board|edecode5:DECODE|lpm_decode:lpm_decode_component
+}
+# macro_sequence
+
+# end
+# entity
+lpm_counter
+# storage
+db|NgControlCpld.(14).cnf
+db|NgControlCpld.(14).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_counter.tdf
+7ec4305adb2671d234677e7df7f0fdb2
+7
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+LPM_WIDTH
+11
+PARAMETER_SIGNED_DEC
+USR
+LPM_DIRECTION
+UP
+PARAMETER_UNKNOWN
+USR
+LPM_MODULUS
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_AVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+LPM_SVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+LPM_PORT_UPDOWN
+PORT_CONNECTIVITY
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+NOT_GATE_PUSH_BACK
+ON
+NOT_GATE_PUSH_BACK
+USR
+CARRY_CNT_EN
+SMART
+PARAMETER_UNKNOWN
+DEF
+LABWIDE_SCLR
+ON
+PARAMETER_UNKNOWN
+DEF
+USE_NEW_VERSION
+TRUE
+PARAMETER_UNKNOWN
+DEF
+CBXI_PARAMETER
+cntr_aci
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sclr
+-1
+3
+q
+-1
+3
+cnt_en
+-1
+3
+clock
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_add_sub.inc
+7d9a33dd39f13aa690c3d0edd88351
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_constant.inc
+dcde44eee59335c1e2fe75d574f9646
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_counter_f10ke.inc
+536f8da8218b4a93689416f9baea1880
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|cmpconst.inc
+e61874547688138e6fc0b49ff8760
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_compare.inc
+aec4ea1b78f4cda1c3effe18f1abbf63
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_synch_counter.inc
+09966d10c3e95c888bf8e443df34d8
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|dffeea.inc
+55d29d20f7e852c37746bec4e2495ec
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_synch_counter_f.inc
+93a5aae1d8bd19c9e8e8eef93ab2177d
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_counter_stratix.inc
+2251b94d26afaa53635df1aff6b6e7be
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_counter.inc
+7f888b135ddf66f0653c44cb18ac5
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_decode.inc
+bd0e2f5e01c1bd360461dceb53d48
+}
+# hierarchies {
+board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component
+}
+# macro_sequence
+
+# end
+# entity
+lpm_compare
+# storage
+db|NgControlCpld.(17).cnf
+db|NgControlCpld.(17).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_compare.tdf
+749c80f4910f73b9fd16a5858a252f
+7
+# user_parameter {
+lpm_width
+11
+PARAMETER_SIGNED_DEC
+USR
+LPM_REPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+CHAIN_SIZE
+8
+PARAMETER_UNKNOWN
+DEF
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CASCADE_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+CASCADE_CHAIN_LENGTH
+2
+CASCADE_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+cmpr_n8g
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+datab
+-1
+3
+dataa
+-1
+3
+ageb
+-1
+3
+clock
+-1
+1
+aclr
+-1
+1
+clken
+-1
+2
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|comptree.inc
+da21447b8e66c26bd34c85b6cdda8169
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+}
+# hierarchies {
+board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component
+}
+# macro_sequence
+
+# end
+# entity
+lpm_add_sub
+# storage
+db|NgControlCpld.(21).cnf
+db|NgControlCpld.(21).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_add_sub.tdf
+1d1eb1d6c3c3beea53d5a8d449c0c04e
+7
+# user_parameter {
+LPM_WIDTH
+11
+PARAMETER_SIGNED_DEC
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+DEF
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_nce
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+result
+-1
+3
+datab
+-1
+3
+dataa
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_mercury_add_sub.inc
+ae39f15ed67cc9a095d29f68f6ad0f8
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_stratix_add_sub.inc
+c08f604aefba5b4f1f554e565113c6
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|bypassff.inc
+8e8df160d449a63ec15dc86ecf2b373f
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|addcore.inc
+ff795e21e4847824c03218724f1a1252
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|look_add.inc
+ab9f577d30c5ef3166fab6c1c32c4a
+}
+# hierarchies {
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component
+}
+# macro_sequence
+
+# end
+# entity
+addcore
+# storage
+db|NgControlCpld.(22).cnf
+db|NgControlCpld.(22).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|addcore.tdf
+1b2b6ae11c95f15ac3d40e6c6c4170
+7
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+11
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+result9
+-1
+3
+result8
+-1
+3
+result7
+-1
+3
+result6
+-1
+3
+result5
+-1
+3
+result4
+-1
+3
+result3
+-1
+3
+result2
+-1
+3
+result10
+-1
+3
+result1
+-1
+3
+result0
+-1
+3
+datab9
+-1
+3
+datab8
+-1
+3
+datab7
+-1
+3
+datab6
+-1
+3
+datab5
+-1
+3
+datab4
+-1
+3
+datab3
+-1
+3
+datab2
+-1
+3
+datab10
+-1
+3
+datab1
+-1
+3
+datab0
+-1
+3
+dataa9
+-1
+3
+dataa8
+-1
+3
+dataa7
+-1
+3
+dataa6
+-1
+3
+dataa5
+-1
+3
+dataa4
+-1
+3
+dataa3
+-1
+3
+dataa2
+-1
+3
+dataa10
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|a_csnbuffer.inc
+49de46f6a395e2e6edecabe6eac9d873
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|addcore.inc
+ff795e21e4847824c03218724f1a1252
+}
+# hierarchies {
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|addcore:adder
+}
+# macro_sequence
+
+# end
+# entity
+a_csnbuffer
+# storage
+db|NgControlCpld.(23).cnf
+db|NgControlCpld.(23).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|a_csnbuffer.tdf
+0a953daa377c9212d3c374d37725bd
+7
+# user_parameter {
+WIDTH
+11
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+0
+PARAMETER_UNKNOWN
+DEF
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sout0
+-1
+3
+sin0
+-1
+3
+}
+# hierarchies {
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:oflow_node
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:cout_node
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:oflow_node
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:cout_node
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:oflow_node
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:cout_node
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:oflow_node
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:cout_node
+}
+# macro_sequence
+
+# end
+# entity
+a_csnbuffer
+# storage
+db|NgControlCpld.(24).cnf
+db|NgControlCpld.(24).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|a_csnbuffer.tdf
+0a953daa377c9212d3c374d37725bd
+7
+# user_parameter {
+WIDTH
+11
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+1
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sout9
+-1
+3
+sout8
+-1
+3
+sout7
+-1
+3
+sout6
+-1
+3
+sout5
+-1
+3
+sout4
+-1
+3
+sout3
+-1
+3
+sout2
+-1
+3
+sout10
+-1
+3
+sout1
+-1
+3
+sout0
+-1
+3
+sin9
+-1
+3
+sin8
+-1
+3
+sin7
+-1
+3
+sin6
+-1
+3
+sin5
+-1
+3
+sin4
+-1
+3
+sin3
+-1
+3
+sin2
+-1
+3
+sin10
+-1
+3
+sin1
+-1
+3
+sin0
+-1
+3
+cout9
+-1
+3
+cout8
+-1
+3
+cout7
+-1
+3
+cout6
+-1
+3
+cout5
+-1
+3
+cout4
+-1
+3
+cout3
+-1
+3
+cout2
+-1
+3
+cout10
+-1
+3
+cout1
+-1
+3
+cout0
+-1
+3
+cin9
+-1
+3
+cin8
+-1
+3
+cin7
+-1
+3
+cin6
+-1
+3
+cin5
+-1
+3
+cin4
+-1
+3
+cin3
+-1
+3
+cin2
+-1
+3
+cin10
+-1
+3
+cin1
+-1
+3
+cin0
+-1
+3
+}
+# hierarchies {
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node
+}
+# macro_sequence
+
+# end
+# entity
+altshift
+# storage
+db|NgControlCpld.(25).cnf
+db|NgControlCpld.(25).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.tdf
+e0b6c7d50619cc8b5abd4b56cc8ab2
+7
+# user_parameter {
+WIDTH
+11
+PARAMETER_UNKNOWN
+USR
+DEPTH
+0
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+result9
+-1
+3
+result8
+-1
+3
+result7
+-1
+3
+result6
+-1
+3
+result5
+-1
+3
+result4
+-1
+3
+result3
+-1
+3
+result2
+-1
+3
+result10
+-1
+3
+result1
+-1
+3
+result0
+-1
+3
+data9
+-1
+3
+data8
+-1
+3
+data7
+-1
+3
+data6
+-1
+3
+data5
+-1
+3
+data4
+-1
+3
+data3
+-1
+3
+data2
+-1
+3
+data10
+-1
+3
+data1
+-1
+3
+data0
+-1
+3
+}
+# hierarchies {
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|altshift:result_ext_latency_ffs
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|altshift:result_ext_latency_ffs
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|altshift:result_ext_latency_ffs
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|altshift:result_ext_latency_ffs
+}
+# macro_sequence
+
+# end
+# entity
+altshift
+# storage
+db|NgControlCpld.(26).cnf
+db|NgControlCpld.(26).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.tdf
+e0b6c7d50619cc8b5abd4b56cc8ab2
+7
+# user_parameter {
+WIDTH
+1
+PARAMETER_UNKNOWN
+USR
+DEPTH
+0
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+result0
+-1
+3
+data0
+-1
+3
+}
+# hierarchies {
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|altshift:carry_ext_latency_ffs
+board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|altshift:oflow_ext_latency_ffs
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|altshift:carry_ext_latency_ffs
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|altshift:oflow_ext_latency_ffs
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|altshift:carry_ext_latency_ffs
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|altshift:oflow_ext_latency_ffs
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|altshift:carry_ext_latency_ffs
+board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|altshift:oflow_ext_latency_ffs
+}
+# macro_sequence
+
+# end
+# entity
+lpm_add_sub
+# storage
+db|NgControlCpld.(28).cnf
+db|NgControlCpld.(28).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_add_sub.tdf
+1d1eb1d6c3c3beea53d5a8d449c0c04e
+7
+# user_parameter {
+LPM_WIDTH
+11
+PARAMETER_SIGNED_DEC
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+ADD
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+DEF
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_mbe
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+result
+-1
+3
+datab
+-1
+3
+dataa
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_mercury_add_sub.inc
+ae39f15ed67cc9a095d29f68f6ad0f8
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|alt_stratix_add_sub.inc
+c08f604aefba5b4f1f554e565113c6
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|bypassff.inc
+8e8df160d449a63ec15dc86ecf2b373f
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|addcore.inc
+ff795e21e4847824c03218724f1a1252
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|look_add.inc
+ab9f577d30c5ef3166fab6c1c32c4a
+}
+# hierarchies {
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component
+}
+# macro_sequence
+
+# end
+# entity
+addcore
+# storage
+db|NgControlCpld.(29).cnf
+db|NgControlCpld.(29).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|addcore.tdf
+1b2b6ae11c95f15ac3d40e6c6c4170
+7
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+11
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+ADD
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+result9
+-1
+3
+result8
+-1
+3
+result7
+-1
+3
+result6
+-1
+3
+result5
+-1
+3
+result4
+-1
+3
+result3
+-1
+3
+result2
+-1
+3
+result10
+-1
+3
+result1
+-1
+3
+result0
+-1
+3
+datab9
+-1
+3
+datab8
+-1
+3
+datab7
+-1
+3
+datab6
+-1
+3
+datab5
+-1
+3
+datab4
+-1
+3
+datab3
+-1
+3
+datab2
+-1
+3
+datab10
+-1
+3
+datab1
+-1
+3
+datab0
+-1
+3
+dataa9
+-1
+3
+dataa8
+-1
+3
+dataa7
+-1
+3
+dataa6
+-1
+3
+dataa5
+-1
+3
+dataa4
+-1
+3
+dataa3
+-1
+3
+dataa2
+-1
+3
+dataa10
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|a_csnbuffer.inc
+49de46f6a395e2e6edecabe6eac9d873
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|addcore.inc
+ff795e21e4847824c03218724f1a1252
+}
+# hierarchies {
+board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder
+board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|addcore:adder
+}
+# macro_sequence
+
+# end
+# entity
+lpm_compare
+# storage
+db|NgControlCpld.(32).cnf
+db|NgControlCpld.(32).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_compare.tdf
+749c80f4910f73b9fd16a5858a252f
+7
+# user_parameter {
+lpm_width
+11
+PARAMETER_SIGNED_DEC
+USR
+LPM_REPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+CHAIN_SIZE
+8
+PARAMETER_UNKNOWN
+DEF
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CASCADE_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+CASCADE_CHAIN_LENGTH
+2
+CASCADE_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+cmpr_i5g
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+datab
+-1
+3
+dataa
+-1
+3
+agb
+-1
+3
+clock
+-1
+1
+aclr
+-1
+1
+clken
+-1
+2
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|comptree.inc
+da21447b8e66c26bd34c85b6cdda8169
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+}
+# hierarchies {
+board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component
+board:board|signal:AUXSIG|gt11:srcomp|lpm_compare:lpm_compare_component
+board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component
+board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component
+board:board|signal:DIODESIG|gt11:setcomp|lpm_compare:lpm_compare_component
+board:board|signal:DIODESIG|gt11:srcomp|lpm_compare:lpm_compare_component
+}
+# macro_sequence
+
+# end
+# entity
+lpm_compare
+# storage
+db|NgControlCpld.(35).cnf
+db|NgControlCpld.(35).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_compare.tdf
+749c80f4910f73b9fd16a5858a252f
+7
+# user_parameter {
+lpm_width
+11
+PARAMETER_SIGNED_DEC
+USR
+LPM_REPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+CHAIN_SIZE
+8
+PARAMETER_UNKNOWN
+DEF
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CASCADE_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+CASCADE_CHAIN_LENGTH
+2
+CASCADE_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+cmpr_n5g
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+datab
+-1
+3
+dataa
+-1
+3
+alb
+-1
+3
+clock
+-1
+1
+aclr
+-1
+1
+clken
+-1
+2
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|comptree.inc
+da21447b8e66c26bd34c85b6cdda8169
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+}
+# hierarchies {
+board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component
+board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component
+board:board|signal:DIODESIG|lt11:retcomp|lpm_compare:lpm_compare_component
+}
+# macro_sequence
+
+# end
+# entity
+lpm_mux
+# storage
+db|NgControlCpld.(38).cnf
+db|NgControlCpld.(38).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|lpm_mux.tdf
+b0c05b84e9d41ffe33c6e6bd095a1
+7
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+LPM_WIDTH
+1
+PARAMETER_SIGNED_DEC
+USR
+LPM_SIZE
+2
+PARAMETER_SIGNED_DEC
+USR
+LPM_WIDTHS
+1
+PARAMETER_SIGNED_DEC
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+CBXI_PARAMETER
+mux_e9c
+PARAMETER_UNKNOWN
+USR
+DEVICE_FAMILY
+MAX II
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sel
+-1
+3
+result
+-1
+3
+data
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|muxlut.inc
+f172666ca13e5e31e17e3f6cb35af52
+..|..|..|..|..|altera|90sp1|quartus|libraries|megafunctions|bypassff.inc
+8e8df160d449a63ec15dc86ecf2b373f
+}
+# hierarchies {
+board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component
+board:board|signal:MAINSIG|mux1:mux1|lpm_mux:lpm_mux_component
+board:board|signal:DIODESIG|mux1:mux1|lpm_mux:lpm_mux_component
+}
+# macro_sequence
+
+# end
+# entity
+NgControlCpld
+# storage
+db|NgControlCpld.(0).cnf
+db|NgControlCpld.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+NgControlCpld.v
+ebd0ec676dcef699bad63817285ed38
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# complete
+

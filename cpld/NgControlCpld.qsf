@@ -1,0 +1,156 @@
+# Copyright (C) 1991-2005 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic       
+# functions, and any output files any of the foregoing           
+# (including device programming or simulation files), and any    
+# associated documentation or information are expressly subject  
+# to the terms and conditions of the Altera Program License      
+# Subscription Agreement, Altera MegaCore Function License       
+# Agreement, or other applicable license agreement, including,   
+# without limitation, that your use is for the sole purpose of   
+# programming logic devices manufactured by Altera and sold by   
+# Altera or its authorized distributors.  Please refer to the    
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		NgControlCpld_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "4.2 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:43:41  MARCH 24, 2005"
+set_global_assignment -name LAST_QUARTUS_VERSION "9.0 SP1"
+set_global_assignment -name VERILOG_FILE add11.v
+set_global_assignment -name VERILOG_FILE sub11.v
+set_global_assignment -name VERILOG_FILE edecode5.v
+set_global_assignment -name VECTOR_WAVEFORM_FILE ngcontrolcpldtest1.vwf
+set_global_assignment -name VERILOG_FILE board.v
+set_global_assignment -name VERILOG_FILE count11.v
+set_global_assignment -name VERILOG_FILE counter.v
+set_global_assignment -name VERILOG_FILE edecode4.v
+set_global_assignment -name VERILOG_FILE gt11.v
+set_global_assignment -name VERILOG_FILE gte11.v
+set_global_assignment -name VERILOG_FILE inblock.v
+set_global_assignment -name VERILOG_FILE lpf.v
+set_global_assignment -name VERILOG_FILE lt11.v
+set_global_assignment -name VERILOG_FILE mux1.v
+set_global_assignment -name VERILOG_FILE reg11.v
+set_global_assignment -name VERILOG_FILE signal.v
+set_global_assignment -name VERILOG_FILE slpf.v
+set_global_assignment -name VERILOG_FILE sreg16.v
+set_global_assignment -name VERILOG_FILE sreg24.v
+set_global_assignment -name VERILOG_FILE NgControlCpld.v
+set_global_assignment -name VECTOR_WAVEFORM_FILE inblocktest1.vwf
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_98 -to aux
+set_location_assignment PIN_14 -to clk
+set_location_assignment PIN_89 -to diode
+set_location_assignment PIN_95 -to main
+set_location_assignment PIN_62 -to mspclk
+set_location_assignment PIN_61 -to nchpsel
+set_location_assignment PIN_66 -to serialin
+set_location_assignment PIN_64 -to serialout
+set_location_assignment PIN_67 -to ste
+set_location_assignment PIN_75 -to gpio1
+set_location_assignment PIN_74 -to gpio2
+set_location_assignment PIN_71 -to FSReset
+set_location_assignment PIN_70 -to nFPGAReset
+set_location_assignment PIN_68 -to FPGAEnable
+set_location_assignment PIN_29 -to LED1
+set_location_assignment PIN_30 -to LED2
+set_location_assignment PIN_58 -to nMSPReset
+set_location_assignment PIN_100 -to nReg5Fault
+set_location_assignment PIN_83 -to nVoltFault
+set_location_assignment PIN_86 -to nReg15Fault
+set_location_assignment PIN_92 -to SD
+set_location_assignment PIN_81 -to nCurrentFault
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL "<None>"
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name TOP_LEVEL_ENTITY NgControlCpld
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EPM570T100C4
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD LVTTL
+
+# EDA Netlist Writer Assignments
+# ==============================
+set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
+set_global_assignment -name EDA_TIMING_ANALYSIS_TOOL "<None>"
+set_global_assignment -name EDA_BOARD_DESIGN_TOOL "<None>"
+set_global_assignment -name EDA_FORMAL_VERIFICATION_TOOL "<None>"
+set_global_assignment -name EDA_RESYNTHESIS_TOOL "<None>"
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+
+# Simulator Assignments
+# =====================
+set_global_assignment -name SIMULATOR_GENERATE_SIGNAL_ACTIVITY_FILE ON
+set_global_assignment -name VECTOR_INPUT_SOURCE NgControlCpldTest1.vwf
+set_global_assignment -name SIMULATOR_SIGNAL_ACTIVITY_FILE_OUTPUT_DESTINATION NgControlCpld.saf
+
+# LogicLock Region Assignments
+# ============================
+set_global_assignment -name LOGICLOCK_INCREMENTAL_COMPILE_ASSIGNMENT OFF
+
+# Power Estimation Assignments
+# ============================
+set_global_assignment -name POWER_USE_INPUT_FILE "SIGNAL ACTIVITY FILE"
+set_global_assignment -name POWER_INPUT_SAF_NAME NgControlCpld.saf
+
+# ----------------
+# start CLOCK(clk)
+
+	# Timing Assignments
+	# ==================
+set_global_assignment -name DUTY_CYCLE 50 -section_id clk
+set_global_assignment -name FMAX_REQUIREMENT "40 MHz" -section_id clk
+
+# end CLOCK(clk)
+# --------------
+
+# -------------------
+# start CLOCK(mspclk)
+
+	# Timing Assignments
+	# ==================
+set_global_assignment -name DUTY_CYCLE 50 -section_id mspclk
+set_global_assignment -name FMAX_REQUIREMENT "7.3728 MHz" -section_id mspclk
+
+# end CLOCK(mspclk)
+# -----------------
+
+# ---------------------------
+# start ENTITY(NgControlCpld)
+
+	# Timing Assignments
+	# ==================
+set_instance_assignment -name CLOCK_SETTINGS clk -to clk
+set_instance_assignment -name CLOCK_SETTINGS mspclk -to mspclk
+
+# end ENTITY(NgControlCpld)
+# -------------------------
+
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name MISC_FILE "C:/Documents and Settings/Dave/Desktop/NgControlCpld/NgControlCpld.dpf"
+set_location_assignment PIN_72 -to nSD
+set_global_assignment -name MISC_FILE "C:/Documents and Settings/Dave/carsoft/mpptng/cpld/NgControlCpld.dpf"
+set_location_assignment PIN_73 -to gpio3

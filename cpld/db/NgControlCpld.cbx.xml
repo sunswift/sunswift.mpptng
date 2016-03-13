@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="NgControlCpld">
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_n5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_e9c.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_nce.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_mbe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_n8g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:AUXSIG|gt11:srcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_nce.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_mbe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_aci.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_ndf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|edecode5:DECODE|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_sdf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:DIODESIG|gt11:setcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:DIODESIG|lt11:retcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_n5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:DIODESIG|mux1:mux1|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_e9c.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_n5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:MAINSIG|mux1:mux1|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_e9c.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:DIODESIG|gt11:srcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i5g.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|NgControlCpld|board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i5g.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

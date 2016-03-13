@@ -1,0 +1,1333 @@
+Analysis & Synthesis report for NgControlCpld
+Sat Jul 04 13:27:50 2009
+Quartus II Version 9.0 Build 184 04/29/2009 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Registers Removed During Synthesis
+  8. Removed Registers Triggering Further Register Optimizations
+  9. General Register Statistics
+ 10. Source assignments for board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component
+ 11. Source assignments for board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder
+ 12. Source assignments for board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder
+ 13. Source assignments for board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|addcore:adder
+ 14. Source assignments for board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|addcore:adder
+ 15. Parameter Settings for User Entity Instance: inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component
+ 16. Parameter Settings for User Entity Instance: inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component
+ 17. Parameter Settings for User Entity Instance: board:board|edecode5:DECODE|lpm_decode:lpm_decode_component
+ 18. Parameter Settings for User Entity Instance: board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component
+ 19. Parameter Settings for User Entity Instance: board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component
+ 20. Parameter Settings for User Entity Instance: board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component
+ 21. Parameter Settings for User Entity Instance: board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component
+ 22. Parameter Settings for User Entity Instance: board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component
+ 23. Parameter Settings for User Entity Instance: board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component
+ 24. Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component
+ 25. Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component
+ 26. Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|gt11:srcomp|lpm_compare:lpm_compare_component
+ 27. Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component
+ 28. Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component
+ 29. Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component
+ 30. Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component
+ 31. Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|mux1:mux1|lpm_mux:lpm_mux_component
+ 32. Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|gt11:setcomp|lpm_compare:lpm_compare_component
+ 33. Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|lt11:retcomp|lpm_compare:lpm_compare_component
+ 34. Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|gt11:srcomp|lpm_compare:lpm_compare_component
+ 35. Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|mux1:mux1|lpm_mux:lpm_mux_component
+ 36. lpm_shiftreg Parameter Settings by Entity Instance
+ 37. Port Connectivity Checks: "board:board|signal:DIODESIG"
+ 38. Port Connectivity Checks: "board:board|signal:MAINSIG"
+ 39. Port Connectivity Checks: "board:board|signal:AUXSIG|reg11:retreg"
+ 40. Port Connectivity Checks: "board:board|signal:AUXSIG|reg11:setreg"
+ 41. Port Connectivity Checks: "board:board|signal:AUXSIG"
+ 42. Port Connectivity Checks: "board:board|counter:count"
+ 43. Port Connectivity Checks: "board:board|reg11:dead_time_reg"
+ 44. Port Connectivity Checks: "board:board|reg11:main_length_reg"
+ 45. Port Connectivity Checks: "board:board|reg11:aux_overlap_reg"
+ 46. Port Connectivity Checks: "board:board|reg11:aux_length_reg"
+ 47. Port Connectivity Checks: "board:board|reg11:period_reg"
+ 48. Port Connectivity Checks: "board:board"
+ 49. Port Connectivity Checks: "inblock:inblock"
+ 50. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                               ;
++-----------------------------+----------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sat Jul 04 13:27:50 2009        ;
+; Quartus II Version          ; 9.0 Build 184 04/29/2009 SP 1 SJ Web Edition ;
+; Revision Name               ; NgControlCpld                                ;
+; Top-level Entity Name       ; NgControlCpld                                ;
+; Family                      ; MAX II                                       ;
+; Total logic elements        ; 207                                          ;
+; Total pins                  ; 23                                           ;
+; Total virtual pins          ; 0                                            ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                                ;
++-----------------------------+----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                          ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Option                                                       ; Setting            ; Default Value      ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Device                                                       ; EPM570T100C4       ;                    ;
+; Top-level entity name                                        ; NgControlCpld      ; NgControlCpld      ;
+; Family name                                                  ; MAX II             ; Stratix            ;
+; Use smart compilation                                        ; Off                ; Off                ;
+; Restructure Multiplexers                                     ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                          ; Off                ; Off                ;
+; Preserve fewer node names                                    ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                    ; Off                ; Off                ;
+; Verilog Version                                              ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                 ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                     ; Auto               ; Auto               ;
+; Safe State Machine                                           ; Off                ; Off                ;
+; Extract Verilog State Machines                               ; On                 ; On                 ;
+; Extract VHDL State Machines                                  ; On                 ; On                 ;
+; Ignore Verilog initial constructs                            ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                   ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops               ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On                 ; On                 ;
+; Parallel Synthesis                                           ; Off                ; Off                ;
+; NOT Gate Push-Back                                           ; On                 ; On                 ;
+; Power-Up Don't Care                                          ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                 ; Off                ; Off                ;
+; Remove Duplicate Registers                                   ; On                 ; On                 ;
+; Ignore CARRY Buffers                                         ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                       ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                    ; Off                ; Off                ;
+; Ignore LCELL Buffers                                         ; Off                ; Off                ;
+; Ignore SOFT Buffers                                          ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                               ; Off                ; Off                ;
+; Optimization Technique                                       ; Balanced           ; Balanced           ;
+; Carry Chain Length                                           ; 70                 ; 70                 ;
+; Auto Carry Chains                                            ; On                 ; On                 ;
+; Auto Open-Drain Pins                                         ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                        ; Off                ; Off                ;
+; Auto Shift Register Replacement                              ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                ; On                 ; On                 ;
+; Allow Synchronous Control Signals                            ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                       ; Off                ; Off                ;
+; Auto Resource Sharing                                        ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing          ; On                 ; On                 ;
+; Maximum Number of M512 Memory Blocks                         ; -1                 ; -1                 ;
+; Maximum Number of M4K/M9K Memory Blocks                      ; -1                 ; -1                 ;
+; Maximum Number of M-RAM/M144K Memory Blocks                  ; -1                 ; -1                 ;
+; Ignore translate_off and synthesis_off directives            ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report           ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                           ; Off                ; Off                ;
+; Synchronization Register Chain Length                        ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                 ; Normal compilation ; Normal compilation ;
+; HDL message level                                            ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages              ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100                ; 100                ;
+; Clock MUX Protection                                         ; On                 ; On                 ;
+; Block Design Naming                                          ; Auto               ; Auto               ;
+; Synthesis Effort                                             ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                           ; Medium             ; Medium             ;
++--------------------------------------------------------------+--------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+
+; add11.v                          ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/add11.v              ;
+; sub11.v                          ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/sub11.v              ;
+; edecode5.v                       ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/edecode5.v           ;
+; board.v                          ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/board.v              ;
+; count11.v                        ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/count11.v            ;
+; counter.v                        ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/counter.v            ;
+; edecode4.v                       ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/edecode4.v           ;
+; gt11.v                           ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/gt11.v               ;
+; gte11.v                          ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/gte11.v              ;
+; inblock.v                        ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/inblock.v            ;
+; lpf.v                            ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/lpf.v                ;
+; lt11.v                           ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/lt11.v               ;
+; mux1.v                           ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/mux1.v               ;
+; reg11.v                          ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/reg11.v              ;
+; signal.v                         ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/signal.v             ;
+; slpf.v                           ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/slpf.v               ;
+; sreg16.v                         ; yes             ; User Wizard-Generated File   ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/sreg16.v             ;
+; NgControlCpld.v                  ; yes             ; User Verilog HDL File        ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/NgControlCpld.v      ;
+; lpm_shiftreg.tdf                 ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_shiftreg.tdf        ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_constant.inc        ;
+; dffeea.inc                       ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/dffeea.inc              ;
+; aglobal90.inc                    ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/aglobal90.inc           ;
+; lpm_decode.tdf                   ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_decode.tdf          ;
+; declut.inc                       ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/declut.inc              ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/altshift.inc            ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_compare.inc         ;
+; db/decode_ndf.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/db/decode_ndf.tdf    ;
+; db/decode_sdf.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/db/decode_sdf.tdf    ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_counter.tdf         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_decode.inc          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_add_sub.inc         ;
+; cmpconst.inc                     ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/cmpconst.inc            ;
+; lpm_counter.inc                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_counter.inc         ;
+; alt_synch_counter.inc            ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/alt_synch_counter.inc   ;
+; alt_synch_counter_f.inc          ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/alt_synch_counter_f.inc ;
+; alt_counter_f10ke.inc            ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/alt_counter_f10ke.inc   ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/alt_counter_stratix.inc ;
+; db/cntr_aci.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/db/cntr_aci.tdf      ;
+; lpm_compare.tdf                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_compare.tdf         ;
+; comptree.inc                     ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/comptree.inc            ;
+; db/cmpr_n8g.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/db/cmpr_n8g.tdf      ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;
+; addcore.inc                      ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/addcore.inc             ;
+; look_add.inc                     ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/look_add.inc            ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/bypassff.inc            ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;
+; alt_mercury_add_sub.inc          ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/alt_mercury_add_sub.inc ;
+; addcore.tdf                      ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/addcore.tdf             ;
+; a_csnbuffer.inc                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/a_csnbuffer.inc         ;
+; a_csnbuffer.tdf                  ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/a_csnbuffer.tdf         ;
+; altshift.tdf                     ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/altshift.tdf            ;
+; db/cmpr_i5g.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/db/cmpr_i5g.tdf      ;
+; db/cmpr_n5g.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/db/cmpr_n5g.tdf      ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/lpm_mux.tdf             ;
+; muxlut.inc                       ; yes             ; Megafunction                 ; c:/altera/90sp1/quartus/libraries/megafunctions/muxlut.inc              ;
+; db/mux_e9c.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Documents and Settings/Dave/carsoft/mpptng/cpld/db/mux_e9c.tdf       ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 207   ;
+;     -- Combinational with no register       ; 89    ;
+;     -- Register only                        ; 90    ;
+;     -- Combinational with a register        ; 28    ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 19    ;
+;     -- 3 input functions                    ; 84    ;
+;     -- 2 input functions                    ; 11    ;
+;     -- 1 input functions                    ; 1     ;
+;     -- 0 input functions                    ; 2     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 127   ;
+;     -- arithmetic mode                      ; 80    ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 11    ;
+;     -- asynchronous clear/load mode         ; 2     ;
+;                                             ;       ;
+; Total registers                             ; 118   ;
+; Total logic cells in carry chains           ; 88    ;
+; I/O pins                                    ; 23    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 100   ;
+; Total fan-out                               ; 671   ;
+; Average fan-out                             ; 2.92  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                      ;
++-------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                                ; Library Name ;
++-------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------------------------------------------+--------------+
+; |NgControlCpld                                  ; 207 (3)     ; 118          ; 0          ; 23   ; 0            ; 89 (2)       ; 90 (0)            ; 28 (1)           ; 88 (0)          ; 0 (0)      ; |NgControlCpld                                                                                                     ; work         ;
+;    |board:board|                                ; 184 (4)     ; 99           ; 0          ; 0    ; 0            ; 85 (2)       ; 73 (1)            ; 26 (1)           ; 88 (0)          ; 0 (0)      ; |NgControlCpld|board:board                                                                                         ; work         ;
+;       |counter:count|                           ; 33 (1)      ; 14           ; 0          ; 0    ; 0            ; 19 (1)       ; 2 (0)             ; 12 (0)           ; 22 (0)          ; 0 (0)      ; |NgControlCpld|board:board|counter:count                                                                           ; work         ;
+;          |count11:count11|                      ; 11 (0)      ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 11 (0)           ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|counter:count|count11:count11                                                           ; work         ;
+;             |lpm_counter:lpm_counter_component| ; 11 (0)      ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 11 (0)           ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component                         ; work         ;
+;                |cntr_aci:auto_generated|        ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 11 (11)          ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_aci:auto_generated ; work         ;
+;          |gte11:detect|                         ; 18 (0)      ; 0            ; 0          ; 0    ; 0            ; 18 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|counter:count|gte11:detect                                                              ; work         ;
+;             |lpm_compare:lpm_compare_component| ; 18 (0)      ; 0            ; 0          ; 0    ; 0            ; 18 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component                            ; work         ;
+;                |cmpr_n8g:auto_generated|        ; 18 (18)     ; 0            ; 0          ; 0    ; 0            ; 18 (18)      ; 0 (0)             ; 0 (0)            ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|cmpr_n8g:auto_generated    ; work         ;
+;          |slpf:cleaner|                         ; 3 (3)       ; 3            ; 0          ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|counter:count|slpf:cleaner                                                              ; work         ;
+;       |edecode5:DECODE|                         ; 4 (0)       ; 0            ; 0          ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|edecode5:DECODE                                                                         ; work         ;
+;          |lpm_decode:lpm_decode_component|      ; 4 (0)       ; 0            ; 0          ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|edecode5:DECODE|lpm_decode:lpm_decode_component                                         ; work         ;
+;             |decode_sdf:auto_generated|         ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|edecode5:DECODE|lpm_decode:lpm_decode_component|decode_sdf:auto_generated               ; work         ;
+;       |reg11:aux_length_reg|                    ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 11 (11)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|reg11:aux_length_reg                                                                    ; work         ;
+;       |reg11:aux_overlap_reg|                   ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 11 (11)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|reg11:aux_overlap_reg                                                                   ; work         ;
+;       |reg11:main_length_reg|                   ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 11 (11)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|reg11:main_length_reg                                                                   ; work         ;
+;       |reg11:period_reg|                        ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 11 (11)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|reg11:period_reg                                                                        ; work         ;
+;       |signal:AUXSIG|                           ; 29 (1)      ; 14           ; 0          ; 0    ; 0            ; 15 (1)       ; 13 (0)            ; 1 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG                                                                           ; work         ;
+;          |gt11:setcomp|                         ; 3 (0)       ; 0            ; 0          ; 0    ; 0            ; 3 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|gt11:setcomp                                                              ; work         ;
+;             |lpm_compare:lpm_compare_component| ; 3 (0)       ; 0            ; 0          ; 0    ; 0            ; 3 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component                            ; work         ;
+;                |cmpr_i5g:auto_generated|        ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated    ; work         ;
+;          |lpf:cleangate|                        ; 3 (3)       ; 3            ; 0          ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|lpf:cleangate                                                             ; work         ;
+;          |lt11:retcomp|                         ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|lt11:retcomp                                                              ; work         ;
+;             |lpm_compare:lpm_compare_component| ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component                            ; work         ;
+;                |cmpr_n5g:auto_generated|        ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|cmpr_n5g:auto_generated    ; work         ;
+;          |reg11:retreg|                         ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 11 (11)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|signal:AUXSIG|reg11:retreg                                                              ; work         ;
+;       |signal:MAINSIG|                          ; 59 (1)      ; 25           ; 0          ; 0    ; 0            ; 34 (1)       ; 13 (0)            ; 12 (0)           ; 44 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG                                                                          ; work         ;
+;          |gt11:setcomp|                         ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|gt11:setcomp                                                             ; work         ;
+;             |lpm_compare:lpm_compare_component| ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component                           ; work         ;
+;                |cmpr_i5g:auto_generated|        ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated   ; work         ;
+;          |gt11:srcomp|                          ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|gt11:srcomp                                                              ; work         ;
+;             |lpm_compare:lpm_compare_component| ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component                            ; work         ;
+;                |cmpr_i5g:auto_generated|        ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated    ; work         ;
+;          |lpf:cleangate|                        ; 3 (3)       ; 3            ; 0          ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|lpf:cleangate                                                            ; work         ;
+;          |lt11:retcomp|                         ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|lt11:retcomp                                                             ; work         ;
+;             |lpm_compare:lpm_compare_component| ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component                           ; work         ;
+;                |cmpr_n5g:auto_generated|        ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|cmpr_n5g:auto_generated   ; work         ;
+;          |reg11:retreg|                         ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 11 (11)          ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|reg11:retreg                                                             ; work         ;
+;          |reg11:setreg|                         ; 11 (11)     ; 11           ; 0          ; 0    ; 0            ; 0 (0)        ; 11 (11)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|board:board|signal:MAINSIG|reg11:setreg                                                             ; work         ;
+;       |sub11:comb_13|                           ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|sub11:comb_13                                                                           ; work         ;
+;          |lpm_add_sub:lpm_add_sub_component|    ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component                                         ; work         ;
+;             |addcore:adder|                     ; 11 (0)      ; 0            ; 0          ; 0    ; 0            ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 11 (0)          ; 0 (0)      ; |NgControlCpld|board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder                           ; work         ;
+;                |a_csnbuffer:result_node|        ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 11 (11)         ; 0 (0)      ; |NgControlCpld|board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node   ; work         ;
+;    |inblock:inblock|                            ; 20 (2)      ; 18           ; 0          ; 0    ; 0            ; 2 (0)        ; 17 (1)            ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|inblock:inblock                                                                                     ; work         ;
+;       |edecode4:BOARDSEL|                       ; 2 (0)       ; 0            ; 0          ; 0    ; 0            ; 2 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|inblock:inblock|edecode4:BOARDSEL                                                                   ; work         ;
+;          |lpm_decode:lpm_decode_component|      ; 2 (0)       ; 0            ; 0          ; 0    ; 0            ; 2 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component                                   ; work         ;
+;             |decode_ndf:auto_generated|         ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component|decode_ndf:auto_generated         ; work         ;
+;       |sreg16:SHIFT|                            ; 16 (0)      ; 16           ; 0          ; 0    ; 0            ; 0 (0)        ; 16 (0)            ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|inblock:inblock|sreg16:SHIFT                                                                        ; work         ;
+;          |lpm_shiftreg:lpm_shiftreg_component|  ; 16 (16)     ; 16           ; 0          ; 0    ; 0            ; 0 (0)        ; 16 (16)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |NgControlCpld|inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component                                    ; work         ;
++-------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++--------------------------------------------------+----------------------------------------+
+; Register name                                    ; Reason for Removal                     ;
++--------------------------------------------------+----------------------------------------+
+; board:board|signal:DIODESIG|lpf:cleangate|comb_6 ; Lost fanout                            ;
+; board:board|signal:DIODESIG|lpf:cleangate|comb_5 ; Lost fanout                            ;
+; board:board|signal:DIODESIG|lpf:cleangate|comb_4 ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF10    ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF9     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF8     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF7     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF6     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF5     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF4     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF3     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF2     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF1     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:setreg|FF0     ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF10    ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF10             ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF9     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF9              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF8     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF8              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF7     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF7              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF6     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF6              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF5     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF5              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF4     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF4              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF3     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF3              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF2     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF2              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF1     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF1              ; Lost fanout                            ;
+; board:board|signal:DIODESIG|reg11:retreg|FF0     ; Lost fanout                            ;
+; board:board|reg11:dead_time_reg|FF0              ; Lost fanout                            ;
+; board:board|signal:AUXSIG|reg11:setreg|FF0       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF1       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF2       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF3       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF4       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF5       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF6       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF7       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF8       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF9       ; Stuck at GND due to stuck port data_in ;
+; board:board|signal:AUXSIG|reg11:setreg|FF10      ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 47           ;                                        ;
++--------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                 ;
++--------------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; Register name                                    ; Reason for Removal ; Registers Removed due to This Register                                              ;
++--------------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; board:board|signal:DIODESIG|lpf:cleangate|comb_6 ; Lost Fanouts       ; board:board|signal:DIODESIG|lpf:cleangate|comb_5,                                   ;
+;                                                  ;                    ; board:board|signal:DIODESIG|lpf:cleangate|comb_4,                                   ;
+;                                                  ;                    ; board:board|signal:DIODESIG|reg11:setreg|FF10,                                      ;
+;                                                  ;                    ; board:board|signal:DIODESIG|reg11:setreg|FF9,                                       ;
+;                                                  ;                    ; board:board|signal:DIODESIG|reg11:retreg|FF10,                                      ;
+;                                                  ;                    ; board:board|reg11:dead_time_reg|FF10, board:board|signal:DIODESIG|reg11:retreg|FF9, ;
+;                                                  ;                    ; board:board|reg11:dead_time_reg|FF9, board:board|signal:DIODESIG|reg11:retreg|FF8,  ;
+;                                                  ;                    ; board:board|reg11:dead_time_reg|FF8                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF8     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF7                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF7     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF6                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF6     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF5                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF5     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF4                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF4     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF3                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF3     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF2                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF2     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF1                                                 ;
+; board:board|signal:DIODESIG|reg11:setreg|FF1     ; Lost Fanouts       ; board:board|reg11:dead_time_reg|FF0                                                 ;
++--------------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 118   ;
+; Number of registers using Synchronous Clear  ; 11    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 2     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 93    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Source assignments for board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component ;
++---------------------------+-------+------+---------------------------------------------------------+
+; Assignment                ; Value ; From ; To                                                      ;
++---------------------------+-------+------+---------------------------------------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -                                                       ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -                                                       ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -                                                       ;
++---------------------------+-------+------+---------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder ;
++---------------------------+-------+------+-------------------------------------------------------+
+; Assignment                ; Value ; From ; To                                                    ;
++---------------------------+-------+------+-------------------------------------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                                                     ;
++---------------------------+-------+------+-------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder ;
++---------------------------+-------+------+-------------------------------------------------------+
+; Assignment                ; Value ; From ; To                                                    ;
++---------------------------+-------+------+-------------------------------------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                                                     ;
++---------------------------+-------+------+-------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component|addcore:adder ;
++---------------------------+-------+------+-------------------------------------------------------+
+; Assignment                ; Value ; From ; To                                                    ;
++---------------------------+-------+------+-------------------------------------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                                                     ;
++---------------------------+-------+------+-------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component|addcore:adder ;
++---------------------------+-------+------+-------------------------------------------------------+
+; Assignment                ; Value ; From ; To                                                    ;
++---------------------------+-------+------+-------------------------------------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; A103  ; -    ; -                                                     ;
++---------------------------+-------+------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component ;
++------------------------+--------+-----------------------------------------------------------------------------+
+; Parameter Name         ; Value  ; Type                                                                        ;
++------------------------+--------+-----------------------------------------------------------------------------+
+; LPM_WIDTH              ; 16     ; Signed Integer                                                              ;
+; LPM_DIRECTION          ; LEFT   ; Untyped                                                                     ;
+; LPM_AVALUE             ; UNUSED ; Untyped                                                                     ;
+; LPM_SVALUE             ; UNUSED ; Untyped                                                                     ;
+; DEVICE_FAMILY          ; MAX II ; Untyped                                                                     ;
+; AUTO_CARRY_CHAINS      ; ON     ; AUTO_CARRY                                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF    ; IGNORE_CARRY                                                                ;
+; AUTO_CASCADE_CHAINS    ; ON     ; AUTO_CASCADE                                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF    ; IGNORE_CASCADE                                                              ;
++------------------------+--------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component ;
++------------------------+------------+--------------------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                                     ;
++------------------------+------------+--------------------------------------------------------------------------+
+; LPM_WIDTH              ; 2          ; Signed Integer                                                           ;
+; LPM_DECODES            ; 4          ; Signed Integer                                                           ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                                  ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                                  ;
+; DEVICE_FAMILY          ; MAX II     ; Untyped                                                                  ;
+; CBXI_PARAMETER         ; decode_ndf ; Untyped                                                                  ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                             ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                                           ;
++------------------------+------------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|edecode5:DECODE|lpm_decode:lpm_decode_component ;
++------------------------+------------+--------------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                               ;
++------------------------+------------+--------------------------------------------------------------------+
+; LPM_WIDTH              ; 3          ; Signed Integer                                                     ;
+; LPM_DECODES            ; 8          ; Signed Integer                                                     ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                            ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                            ;
+; DEVICE_FAMILY          ; MAX II     ; Untyped                                                            ;
+; CBXI_PARAMETER         ; decode_sdf ; Untyped                                                            ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                       ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                                     ;
++------------------------+------------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component ;
++------------------------+-------------------+-----------------------------------------------------------------------------+
+; Parameter Name         ; Value             ; Type                                                                        ;
++------------------------+-------------------+-----------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                                                                ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                                                              ;
+; LPM_WIDTH              ; 11                ; Signed Integer                                                              ;
+; LPM_DIRECTION          ; UP                ; Untyped                                                                     ;
+; LPM_MODULUS            ; 0                 ; Untyped                                                                     ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                                                                     ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                                                                     ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                                                     ;
+; DEVICE_FAMILY          ; MAX II            ; Untyped                                                                     ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                                                          ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                                                          ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                                                                     ;
+; LABWIDE_SCLR           ; ON                ; Untyped                                                                     ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                                                                     ;
+; CBXI_PARAMETER         ; cntr_aci          ; Untyped                                                                     ;
++------------------------+-------------------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                              ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                    ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                           ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                           ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                           ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                           ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                              ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                           ;
+; CBXI_PARAMETER         ; cmpr_n8g ; Untyped                                                                           ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                    ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component ;
++------------------------+-------------+-------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                              ;
++------------------------+-------------+-------------------------------------------------------------------+
+; LPM_WIDTH              ; 11          ; Signed Integer                                                    ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                           ;
+; LPM_DIRECTION          ; SUB         ; Untyped                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                           ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                           ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                           ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                           ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                           ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                ;
+; DEVICE_FAMILY          ; MAX II      ; Untyped                                                           ;
+; USE_WYS                ; OFF         ; Untyped                                                           ;
+; STYLE                  ; FAST        ; Untyped                                                           ;
+; CBXI_PARAMETER         ; add_sub_nce ; Untyped                                                           ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                    ;
++------------------------+-------------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component ;
++------------------------+-------------+-------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                              ;
++------------------------+-------------+-------------------------------------------------------------------+
+; LPM_WIDTH              ; 11          ; Signed Integer                                                    ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                           ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                           ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                           ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                           ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                           ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                           ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                ;
+; DEVICE_FAMILY          ; MAX II      ; Untyped                                                           ;
+; USE_WYS                ; OFF         ; Untyped                                                           ;
+; STYLE                  ; FAST        ; Untyped                                                           ;
+; CBXI_PARAMETER         ; add_sub_mbe ; Untyped                                                           ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                    ;
++------------------------+-------------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|add11:comb_15|lpm_add_sub:lpm_add_sub_component ;
++------------------------+-------------+-------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                              ;
++------------------------+-------------+-------------------------------------------------------------------+
+; LPM_WIDTH              ; 11          ; Signed Integer                                                    ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                           ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                           ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                           ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                           ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                           ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                           ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                ;
+; DEVICE_FAMILY          ; MAX II      ; Untyped                                                           ;
+; USE_WYS                ; OFF         ; Untyped                                                           ;
+; STYLE                  ; FAST        ; Untyped                                                           ;
+; CBXI_PARAMETER         ; add_sub_mbe ; Untyped                                                           ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                    ;
++------------------------+-------------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|sub11:comb_16|lpm_add_sub:lpm_add_sub_component ;
++------------------------+-------------+-------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                              ;
++------------------------+-------------+-------------------------------------------------------------------+
+; LPM_WIDTH              ; 11          ; Signed Integer                                                    ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                           ;
+; LPM_DIRECTION          ; SUB         ; Untyped                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                           ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                           ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                           ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                           ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                           ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                ;
+; DEVICE_FAMILY          ; MAX II      ; Untyped                                                           ;
+; USE_WYS                ; OFF         ; Untyped                                                           ;
+; STYLE                  ; FAST        ; Untyped                                                           ;
+; CBXI_PARAMETER         ; add_sub_nce ; Untyped                                                           ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                    ;
++------------------------+-------------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                              ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                    ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                           ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                           ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                           ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                           ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                              ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                           ;
+; CBXI_PARAMETER         ; cmpr_i5g ; Untyped                                                                           ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                    ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                              ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                    ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                           ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                           ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                           ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                           ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                              ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                           ;
+; CBXI_PARAMETER         ; cmpr_n5g ; Untyped                                                                           ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                    ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|gt11:srcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+----------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                             ;
++------------------------+----------+----------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                   ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                          ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                          ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                          ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                          ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                          ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                          ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                               ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                             ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                          ;
+; CBXI_PARAMETER         ; cmpr_i5g ; Untyped                                                                          ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                     ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                   ;
++------------------------+----------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component ;
++------------------------+---------+-------------------------------------------------------------------------+
+; Parameter Name         ; Value   ; Type                                                                    ;
++------------------------+---------+-------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON      ; AUTO_CARRY                                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF     ; IGNORE_CARRY                                                            ;
+; AUTO_CASCADE_CHAINS    ; ON      ; AUTO_CASCADE                                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF     ; IGNORE_CASCADE                                                          ;
+; LPM_WIDTH              ; 1       ; Signed Integer                                                          ;
+; LPM_SIZE               ; 2       ; Signed Integer                                                          ;
+; LPM_WIDTHS             ; 1       ; Signed Integer                                                          ;
+; LPM_PIPELINE           ; 0       ; Untyped                                                                 ;
+; CBXI_PARAMETER         ; mux_e9c ; Untyped                                                                 ;
+; DEVICE_FAMILY          ; MAX II  ; Untyped                                                                 ;
++------------------------+---------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+------------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                               ;
++------------------------+----------+------------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                     ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                            ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                            ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                            ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                            ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                            ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                            ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                 ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                               ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                            ;
+; CBXI_PARAMETER         ; cmpr_i5g ; Untyped                                                                            ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                       ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                     ;
++------------------------+----------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+------------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                               ;
++------------------------+----------+------------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                     ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                            ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                            ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                            ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                            ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                            ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                            ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                 ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                               ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                            ;
+; CBXI_PARAMETER         ; cmpr_n5g ; Untyped                                                                            ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                       ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                     ;
++------------------------+----------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                              ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                    ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                           ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                           ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                           ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                           ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                           ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                           ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                              ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                           ;
+; CBXI_PARAMETER         ; cmpr_i5g ; Untyped                                                                           ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                      ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                    ;
++------------------------+----------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:MAINSIG|mux1:mux1|lpm_mux:lpm_mux_component ;
++------------------------+---------+--------------------------------------------------------------------------+
+; Parameter Name         ; Value   ; Type                                                                     ;
++------------------------+---------+--------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON      ; AUTO_CARRY                                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF     ; IGNORE_CARRY                                                             ;
+; AUTO_CASCADE_CHAINS    ; ON      ; AUTO_CASCADE                                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF     ; IGNORE_CASCADE                                                           ;
+; LPM_WIDTH              ; 1       ; Signed Integer                                                           ;
+; LPM_SIZE               ; 2       ; Signed Integer                                                           ;
+; LPM_WIDTHS             ; 1       ; Signed Integer                                                           ;
+; LPM_PIPELINE           ; 0       ; Untyped                                                                  ;
+; CBXI_PARAMETER         ; mux_e9c ; Untyped                                                                  ;
+; DEVICE_FAMILY          ; MAX II  ; Untyped                                                                  ;
++------------------------+---------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|gt11:setcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+-------------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                                ;
++------------------------+----------+-------------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                      ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                             ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                             ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                             ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                             ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                             ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                             ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                  ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                                ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                             ;
+; CBXI_PARAMETER         ; cmpr_i5g ; Untyped                                                                             ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                        ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                      ;
++------------------------+----------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|lt11:retcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+-------------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                                ;
++------------------------+----------+-------------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                      ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                             ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                             ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                             ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                             ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                             ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                             ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                  ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                                ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                             ;
+; CBXI_PARAMETER         ; cmpr_n5g ; Untyped                                                                             ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                        ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                      ;
++------------------------+----------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|gt11:srcomp|lpm_compare:lpm_compare_component ;
++------------------------+----------+------------------------------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                                               ;
++------------------------+----------+------------------------------------------------------------------------------------+
+; lpm_width              ; 11       ; Signed Integer                                                                     ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                                            ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                                            ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                                            ;
+; ONE_INPUT_IS_CONSTANT  ; NO       ; Untyped                                                                            ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                                            ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                                            ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                                                 ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                                               ;
+; DEVICE_FAMILY          ; MAX II   ; Untyped                                                                            ;
+; CBXI_PARAMETER         ; cmpr_i5g ; Untyped                                                                            ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                                       ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                                                     ;
++------------------------+----------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: board:board|signal:DIODESIG|mux1:mux1|lpm_mux:lpm_mux_component ;
++------------------------+---------+---------------------------------------------------------------------------+
+; Parameter Name         ; Value   ; Type                                                                      ;
++------------------------+---------+---------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON      ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF     ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS    ; ON      ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF     ; IGNORE_CASCADE                                                            ;
+; LPM_WIDTH              ; 1       ; Signed Integer                                                            ;
+; LPM_SIZE               ; 2       ; Signed Integer                                                            ;
+; LPM_WIDTHS             ; 1       ; Signed Integer                                                            ;
+; LPM_PIPELINE           ; 0       ; Untyped                                                                   ;
+; CBXI_PARAMETER         ; mux_e9c ; Untyped                                                                   ;
+; DEVICE_FAMILY          ; MAX II  ; Untyped                                                                   ;
++------------------------+---------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; lpm_shiftreg Parameter Settings by Entity Instance                                            ;
++----------------------------+------------------------------------------------------------------+
+; Name                       ; Value                                                            ;
++----------------------------+------------------------------------------------------------------+
+; Number of entity instances ; 1                                                                ;
+; Entity Instance            ; inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component ;
+;     -- LPM_WIDTH           ; 16                                                               ;
+;     -- LPM_DIRECTION       ; LEFT                                                             ;
++----------------------------+------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|signal:DIODESIG"                                          ;
++------------+---------+------------------+--------------------------------------------------------+
+; Port       ; Type    ; Severity         ; Details                                                ;
++------------+---------+------------------+--------------------------------------------------------+
+; setpoint   ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; resetpoint ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; enable     ; Input   ; Info             ; Stuck at GND                                           ;
+; counter    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|signal:MAINSIG"                                           ;
++------------+---------+------------------+--------------------------------------------------------+
+; Port       ; Type    ; Severity         ; Details                                                ;
++------------+---------+------------------+--------------------------------------------------------+
+; setpoint   ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; resetpoint ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; counter    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|signal:AUXSIG|reg11:retreg"                         ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; D    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; Q    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|signal:AUXSIG|reg11:setreg"                         ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; D    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; Q    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|signal:AUXSIG"                                            ;
++------------+---------+------------------+--------------------------------------------------------+
+; Port       ; Type    ; Severity         ; Details                                                ;
++------------+---------+------------------+--------------------------------------------------------+
+; setpoint   ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; resetpoint ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; counter    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------------+---------+------------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|counter:count"                                         ;
++---------+---------+------------------+--------------------------------------------------------+
+; Port    ; Type    ; Severity         ; Details                                                ;
++---------+---------+------------------+--------------------------------------------------------+
+; counter ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; period  ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++---------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|reg11:dead_time_reg"                                ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; D    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; Q    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|reg11:main_length_reg"                              ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; D    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; Q    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|reg11:aux_overlap_reg"                              ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; D    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; Q    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|reg11:aux_length_reg"                               ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; D    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; Q    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board|reg11:period_reg"                                   ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; D    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
+; Q    ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "board:board"                                                    ;
++------+---------+------------------+--------------------------------------------------------+
+; Port ; Type    ; Severity         ; Details                                                ;
++------+---------+------------------+--------------------------------------------------------+
+; data ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
++------+---------+------------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "inblock:inblock"                                                                                                   ;
++-------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type    ; Severity         ; Details                                                                                                  ;
++-------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; data  ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                   ;
+; load2 ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; load3 ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 184 04/29/2009 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Jul 04 13:27:28 2009
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NgControlCpld -c NgControlCpld
+Info: Found 1 design units, including 1 entities, in source file add11.v
+    Info: Found entity 1: add11
+Info: Found 1 design units, including 1 entities, in source file sub11.v
+    Info: Found entity 1: sub11
+Info: Found 1 design units, including 1 entities, in source file edecode5.v
+    Info: Found entity 1: edecode5
+Info: Found 1 design units, including 1 entities, in source file board.v
+    Info: Found entity 1: board
+Info: Found 1 design units, including 1 entities, in source file count11.v
+    Info: Found entity 1: count11
+Info: Found 1 design units, including 1 entities, in source file counter.v
+    Info: Found entity 1: counter
+Info: Found 1 design units, including 1 entities, in source file edecode4.v
+    Info: Found entity 1: edecode4
+Info: Found 1 design units, including 1 entities, in source file gt11.v
+    Info: Found entity 1: gt11
+Info: Found 1 design units, including 1 entities, in source file gte11.v
+    Info: Found entity 1: gte11
+Info: Found 1 design units, including 1 entities, in source file inblock.v
+    Info: Found entity 1: inblock
+Info: Found 1 design units, including 1 entities, in source file lpf.v
+    Info: Found entity 1: lpf
+Info: Found 1 design units, including 1 entities, in source file lt11.v
+    Info: Found entity 1: lt11
+Info: Found 1 design units, including 1 entities, in source file mux1.v
+    Info: Found entity 1: mux1
+Info: Found 1 design units, including 1 entities, in source file reg11.v
+    Info: Found entity 1: reg11
+Info: Found 1 design units, including 1 entities, in source file signal.v
+    Info: Found entity 1: signal
+Info: Found 1 design units, including 1 entities, in source file slpf.v
+    Info: Found entity 1: slpf
+Info: Found 1 design units, including 1 entities, in source file sreg16.v
+    Info: Found entity 1: sreg16
+Info: Found 1 design units, including 1 entities, in source file sreg24.v
+    Info: Found entity 1: sreg24
+Info: Found 1 design units, including 1 entities, in source file NgControlCpld.v
+    Info: Found entity 1: NgControlCpld
+Critical Warning (10846): Verilog HDL Instantiation warning at board.v(85): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at slpf.v(40): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at slpf.v(41): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at slpf.v(42): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at board.v(100): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at board.v(101): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at board.v(103): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at board.v(104): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at board.v(107): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at lpf.v(42): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at lpf.v(43): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at lpf.v(44): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at NgControlCpld.v(124): instance has no name
+Info: Elaborating entity "NgControlCpld" for the top level hierarchy
+Warning (10739): Verilog HDL warning at NgControlCpld.v(131): actual bit length 2 differs from formal bit length 1
+Info: Elaborating entity "inblock" for hierarchy "inblock:inblock"
+Info: Elaborating entity "sreg16" for hierarchy "inblock:inblock|sreg16:SHIFT"
+Info: Elaborating entity "lpm_shiftreg" for hierarchy "inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component"
+Info: Elaborated megafunction instantiation "inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component"
+Info: Instantiated megafunction "inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component" with the following parameter:
+    Info: Parameter "lpm_type" = "LPM_SHIFTREG"
+    Info: Parameter "lpm_width" = "16"
+    Info: Parameter "lpm_direction" = "LEFT"
+Info: Elaborating entity "edecode4" for hierarchy "inblock:inblock|edecode4:BOARDSEL"
+Info: Elaborating entity "lpm_decode" for hierarchy "inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component"
+Info: Elaborated megafunction instantiation "inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component"
+Info: Instantiated megafunction "inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component" with the following parameter:
+    Info: Parameter "lpm_width" = "2"
+    Info: Parameter "lpm_decodes" = "4"
+    Info: Parameter "lpm_type" = "LPM_DECODE"
+Info: Found 1 design units, including 1 entities, in source file db/decode_ndf.tdf
+    Info: Found entity 1: decode_ndf
+Info: Elaborating entity "decode_ndf" for hierarchy "inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component|decode_ndf:auto_generated"
+Info: Elaborating entity "board" for hierarchy "board:board"
+Warning (10739): Verilog HDL warning at board.v(91): actual bit length 2 differs from formal bit length 1
+Info: Elaborating entity "edecode5" for hierarchy "board:board|edecode5:DECODE"
+Info: Elaborating entity "lpm_decode" for hierarchy "board:board|edecode5:DECODE|lpm_decode:lpm_decode_component"
+Info: Elaborated megafunction instantiation "board:board|edecode5:DECODE|lpm_decode:lpm_decode_component"
+Info: Instantiated megafunction "board:board|edecode5:DECODE|lpm_decode:lpm_decode_component" with the following parameter:
+    Info: Parameter "lpm_width" = "3"
+    Info: Parameter "lpm_decodes" = "8"
+    Info: Parameter "lpm_type" = "LPM_DECODE"
+Info: Found 1 design units, including 1 entities, in source file db/decode_sdf.tdf
+    Info: Found entity 1: decode_sdf
+Info: Elaborating entity "decode_sdf" for hierarchy "board:board|edecode5:DECODE|lpm_decode:lpm_decode_component|decode_sdf:auto_generated"
+Info: Elaborating entity "reg11" for hierarchy "board:board|reg11:period_reg"
+Info: Elaborating entity "counter" for hierarchy "board:board|counter:count"
+Info: Elaborating entity "count11" for hierarchy "board:board|counter:count|count11:count11"
+Info: Elaborating entity "lpm_counter" for hierarchy "board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component"
+Info: Elaborated megafunction instantiation "board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component"
+Info: Instantiated megafunction "board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component" with the following parameter:
+    Info: Parameter "lpm_width" = "11"
+    Info: Parameter "lpm_type" = "LPM_COUNTER"
+    Info: Parameter "lpm_direction" = "UP"
+Info: Found 1 design units, including 1 entities, in source file db/cntr_aci.tdf
+    Info: Found entity 1: cntr_aci
+Info: Elaborating entity "cntr_aci" for hierarchy "board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_aci:auto_generated"
+Info: Elaborating entity "gte11" for hierarchy "board:board|counter:count|gte11:detect"
+Info: Elaborating entity "lpm_compare" for hierarchy "board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component"
+Info: Elaborated megafunction instantiation "board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component"
+Info: Instantiated megafunction "board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component" with the following parameter:
+    Info: Parameter "lpm_width" = "11"
+    Info: Parameter "lpm_type" = "LPM_COMPARE"
+    Info: Parameter "lpm_representation" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/cmpr_n8g.tdf
+    Info: Found entity 1: cmpr_n8g
+Info: Elaborating entity "cmpr_n8g" for hierarchy "board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|cmpr_n8g:auto_generated"
+Info: Elaborating entity "slpf" for hierarchy "board:board|counter:count|slpf:cleaner"
+Info: Elaborating entity "sub11" for hierarchy "board:board|sub11:comb_13"
+Info: Elaborating entity "lpm_add_sub" for hierarchy "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborated megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component"
+Info: Instantiated megafunction "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component" with the following parameter:
+    Info: Parameter "lpm_width" = "11"
+    Info: Parameter "lpm_direction" = "SUB"
+    Info: Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info: Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=NO,CIN_USED=NO"
+Info: Elaborating entity "addcore" for hierarchy "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder"
+Info: Elaborated megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder", which is child of megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborating entity "a_csnbuffer" for hierarchy "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:oflow_node"
+Info: Elaborated megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:oflow_node", which is child of megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborating entity "a_csnbuffer" for hierarchy "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node"
+Info: Elaborated megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node", which is child of megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborating entity "altshift" for hierarchy "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|altshift:result_ext_latency_ffs"
+Info: Elaborated megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborating entity "altshift" for hierarchy "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|altshift:carry_ext_latency_ffs"
+Info: Elaborated megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "board:board|sub11:comb_13|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborating entity "add11" for hierarchy "board:board|add11:comb_14"
+Info: Elaborating entity "lpm_add_sub" for hierarchy "board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborated megafunction instantiation "board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component"
+Info: Instantiated megafunction "board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component" with the following parameter:
+    Info: Parameter "lpm_width" = "11"
+    Info: Parameter "lpm_direction" = "ADD"
+    Info: Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info: Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=NO,CIN_USED=NO"
+Info: Elaborating entity "addcore" for hierarchy "board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder"
+Info: Elaborated megafunction instantiation "board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component|addcore:adder", which is child of megafunction instantiation "board:board|add11:comb_14|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborating entity "signal" for hierarchy "board:board|signal:AUXSIG"
+Info: Elaborating entity "gt11" for hierarchy "board:board|signal:AUXSIG|gt11:setcomp"
+Info: Elaborating entity "lpm_compare" for hierarchy "board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component"
+Info: Elaborated megafunction instantiation "board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component"
+Info: Instantiated megafunction "board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component" with the following parameter:
+    Info: Parameter "lpm_width" = "11"
+    Info: Parameter "lpm_type" = "LPM_COMPARE"
+    Info: Parameter "lpm_representation" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/cmpr_i5g.tdf
+    Info: Found entity 1: cmpr_i5g
+Info: Elaborating entity "cmpr_i5g" for hierarchy "board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|cmpr_i5g:auto_generated"
+Info: Elaborating entity "lt11" for hierarchy "board:board|signal:AUXSIG|lt11:retcomp"
+Info: Elaborating entity "lpm_compare" for hierarchy "board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component"
+Info: Elaborated megafunction instantiation "board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component"
+Info: Instantiated megafunction "board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component" with the following parameter:
+    Info: Parameter "lpm_width" = "11"
+    Info: Parameter "lpm_type" = "LPM_COMPARE"
+    Info: Parameter "lpm_representation" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/cmpr_n5g.tdf
+    Info: Found entity 1: cmpr_n5g
+Info: Elaborating entity "cmpr_n5g" for hierarchy "board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|cmpr_n5g:auto_generated"
+Info: Elaborating entity "mux1" for hierarchy "board:board|signal:AUXSIG|mux1:mux1"
+Info: Elaborating entity "lpm_mux" for hierarchy "board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component"
+Info: Elaborated megafunction instantiation "board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component"
+Info: Instantiated megafunction "board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component" with the following parameter:
+    Info: Parameter "lpm_size" = "2"
+    Info: Parameter "lpm_widths" = "1"
+    Info: Parameter "lpm_width" = "1"
+    Info: Parameter "lpm_type" = "LPM_MUX"
+Info: Found 1 design units, including 1 entities, in source file db/mux_e9c.tdf
+    Info: Found entity 1: mux_e9c
+Info: Elaborating entity "mux_e9c" for hierarchy "board:board|signal:AUXSIG|mux1:mux1|lpm_mux:lpm_mux_component|mux_e9c:auto_generated"
+Info: Elaborating entity "lpf" for hierarchy "board:board|signal:AUXSIG|lpf:cleangate"
+Info: Ignored 1 buffer(s)
+    Info: Ignored 1 SOFT buffer(s)
+Warning: 13 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "serialout" is stuck at GND
+    Warning (13410): Pin "diode" is stuck at GND
+Info: 36 registers lost all their fanouts during netlist optimizations. The first 36 are displayed below.
+    Info: Register "board:board|signal:DIODESIG|lpf:cleangate|comb_6" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|lpf:cleangate|comb_5" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|lpf:cleangate|comb_4" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF10" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF9" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF8" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF7" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF6" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF5" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF4" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF3" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF2" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF1" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:setreg|FF0" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF10" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF10" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF9" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF9" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF8" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF8" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF7" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF7" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF6" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF6" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF5" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF5" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF4" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF4" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF3" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF3" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF2" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF2" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF1" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF1" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|signal:DIODESIG|reg11:retreg|FF0" lost all its fanouts during netlist optimizations.
+    Info: Register "board:board|reg11:dead_time_reg|FF0" lost all its fanouts during netlist optimizations.
+Warning: Design contains 5 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ste"
+    Warning (15610): No output dependent on input pin "gpio1"
+    Warning (15610): No output dependent on input pin "gpio2"
+    Warning (15610): No output dependent on input pin "FPGAEnable"
+    Warning (15610): No output dependent on input pin "nCurrentFault"
+Info: Implemented 230 device resources after synthesis - the final resource count might be different
+    Info: Implemented 15 input pins
+    Info: Implemented 8 output pins
+    Info: Implemented 207 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 172 megabytes
+    Info: Processing ended: Sat Jul 04 13:27:50 2009
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:09
+
+

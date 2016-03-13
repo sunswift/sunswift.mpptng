@@ -1,0 +1,1714 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--comb_8 is comb_8
+--operation mode is normal
+
+comb_8_lut_out = VCC;
+comb_8 = DFFEAS(comb_8_lut_out, FSReset, nFPGAReset, , , , , , );
+
+
+--A1L11 is enable~32
+--operation mode is normal
+
+A1L11 = nVoltFault & nReg5Fault & nReg15Fault;
+
+
+--enable is enable
+--operation mode is normal
+
+enable = !nFPGAReset # !nMSPReset # !A1L11;
+
+
+--B1_enable is board:board|enable
+--operation mode is normal
+
+B1_enable_lut_out = VCC;
+B1_enable = DFFEAS(B1_enable_lut_out, FSReset, !enable, , , , , , );
+
+
+--K1_comb_6 is board:board|signal:AUXSIG|lpf:cleangate|comb_6
+--operation mode is normal
+
+K1_comb_6_lut_out = K1_comb_5;
+K1_comb_6 = DFFEAS(K1_comb_6_lut_out, clk, VCC, , , , , , );
+
+
+--K1_comb_5 is board:board|signal:AUXSIG|lpf:cleangate|comb_5
+--operation mode is normal
+
+K1_comb_5_lut_out = K1_comb_4;
+K1_comb_5 = DFFEAS(K1_comb_5_lut_out, clk, VCC, , , , , , );
+
+
+--K1_comb_4 is board:board|signal:AUXSIG|lpf:cleangate|comb_4
+--operation mode is normal
+
+K1_comb_4_lut_out = U2_agb_out & (U1_agb_out # U3_agb_out) # !U2_agb_out & U1_agb_out & U3_agb_out;
+K1_comb_4 = DFFEAS(K1_comb_4_lut_out, clk, VCC, , , , , , );
+
+
+--D1L1 is board:board|signal:AUXSIG|Gate~102
+--operation mode is normal
+
+D1L1 = B1_enable & (K1_comb_6 & (K1_comb_5 # K1_comb_4) # !K1_comb_6 & K1_comb_5 & K1_comb_4);
+
+
+--K3_comb_6 is board:board|signal:MAINSIG|lpf:cleangate|comb_6
+--operation mode is normal
+
+K3_comb_6_lut_out = K3_comb_5;
+K3_comb_6 = DFFEAS(K3_comb_6_lut_out, clk, VCC, , , , , , );
+
+
+--K3_comb_5 is board:board|signal:MAINSIG|lpf:cleangate|comb_5
+--operation mode is normal
+
+K3_comb_5_lut_out = K3_comb_4;
+K3_comb_5 = DFFEAS(K3_comb_5_lut_out, clk, VCC, , , , , , );
+
+
+--K3_comb_4 is board:board|signal:MAINSIG|lpf:cleangate|comb_4
+--operation mode is normal
+
+K3_comb_4_lut_out = U8_agb_out & (U7_agb_out # U9_agb_out) # !U8_agb_out & U7_agb_out & U9_agb_out;
+K3_comb_4 = DFFEAS(K3_comb_4_lut_out, clk, VCC, , , , , , );
+
+
+--D3L1 is board:board|signal:MAINSIG|Gate~102
+--operation mode is normal
+
+D3L1 = B1_enable & (K3_comb_6 & (K3_comb_5 # K3_comb_4) # !K3_comb_6 & K3_comb_5 & K3_comb_4);
+
+
+--U2_lcarry[9] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[9]
+--operation mode is arithmetic
+
+U2_lcarry[9] = CARRY(!EB1_safe_q[9] & (!U2_lcarry[8]));
+
+
+--EB1_safe_q[10] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[10]
+--operation mode is normal
+
+EB1_safe_q[10]_carry_eqn = EB1L02;
+EB1_safe_q[10]_lut_out = EB1_safe_q[10] $ (B1_enable & !EB1_safe_q[10]_carry_eqn);
+EB1_safe_q[10] = DFFEAS(EB1_safe_q[10]_lut_out, clk, VCC, , , , , J1_clear, );
+
+
+--U2_agb_out is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|agb_out
+--operation mode is normal
+
+U2_agb_out_carry_eqn = U2_lcarry[9];
+U2_agb_out = LCELL(EB1_safe_q[10] # !U2_agb_out_carry_eqn);
+
+
+--U1_lcarry[9] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[9]
+--operation mode is arithmetic
+
+U1_lcarry[9] = CARRY(F6_FF9 & EB1_safe_q[9] & !U1_lcarry[8] # !F6_FF9 & (EB1_safe_q[9] # !U1_lcarry[8]));
+
+
+--F6_FF10 is board:board|signal:AUXSIG|reg11:retreg|FF10
+--operation mode is normal
+
+F6_FF10_lut_out = F1_FF10;
+F6_FF10 = DFFEAS(F6_FF10_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--U1_agb_out is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|agb_out
+--operation mode is normal
+
+U1_agb_out_carry_eqn = U1_lcarry[9];
+U1_agb_out = LCELL(F6_FF10 & (!EB1_safe_q[10] # !U1_agb_out_carry_eqn) # !F6_FF10 & !U1_agb_out_carry_eqn & !EB1_safe_q[10]);
+
+
+--U8_lcarry[9] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[9]
+--operation mode is arithmetic
+
+U8_lcarry[9] = CARRY(EB1_safe_q[9] & F11_FF9 & !U8_lcarry[8] # !EB1_safe_q[9] & (F11_FF9 # !U8_lcarry[8]));
+
+
+--F11_FF10 is board:board|signal:MAINSIG|reg11:setreg|FF10
+--operation mode is normal
+
+F11_FF10_lut_out = Z3L1;
+F11_FF10 = DFFEAS(F11_FF10_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--U8_agb_out is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|agb_out
+--operation mode is normal
+
+U8_agb_out_carry_eqn = U8_lcarry[9];
+U8_agb_out = LCELL(EB1_safe_q[10] & (!F11_FF10 # !U8_agb_out_carry_eqn) # !EB1_safe_q[10] & (!U8_agb_out_carry_eqn & !F11_FF10));
+
+
+--F01_FF10 is board:board|signal:MAINSIG|reg11:retreg|FF10
+--operation mode is normal
+
+F01_FF10_carry_eqn = F01L02;
+F01_FF10_lut_out = Z3L1 $ F4_FF10 $ !F01_FF10_carry_eqn;
+F01_FF10 = DFFEAS(F01_FF10_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--U7_lcarry[9] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[9]
+--operation mode is arithmetic
+
+U7_lcarry[9] = CARRY(F01_FF9 & EB1_safe_q[9] & !U7_lcarry[8] # !F01_FF9 & (EB1_safe_q[9] # !U7_lcarry[8]));
+
+
+--U7_agb_out is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|agb_out
+--operation mode is normal
+
+U7_agb_out_carry_eqn = U7_lcarry[9];
+U7_agb_out = LCELL(F01_FF10 & (!EB1_safe_q[10] # !U7_agb_out_carry_eqn) # !F01_FF10 & (!U7_agb_out_carry_eqn & !EB1_safe_q[10]));
+
+
+--U9_lcarry[9] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[9]
+--operation mode is arithmetic
+
+U9_lcarry[9] = CARRY(F11_FF9 & F01_FF9 & !U9_lcarry[8] # !F11_FF9 & (F01_FF9 # !U9_lcarry[8]));
+
+
+--U9_agb_out is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|agb_out
+--operation mode is normal
+
+U9_agb_out_carry_eqn = U9_lcarry[9];
+U9_agb_out = LCELL(F11_FF10 & (!F01_FF10 # !U9_agb_out_carry_eqn) # !F11_FF10 & !U9_agb_out_carry_eqn & !F01_FF10);
+
+
+--U2_lcarry[8] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[8]
+--operation mode is arithmetic
+
+U2_lcarry[8] = CARRY(EB1_safe_q[8] # !U2_lcarry[7]);
+
+
+--EB1_safe_q[9] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[9]
+--operation mode is arithmetic
+
+EB1_safe_q[9]_carry_eqn = EB1L81;
+EB1_safe_q[9]_lut_out = EB1_safe_q[9] $ (B1_enable & EB1_safe_q[9]_carry_eqn);
+EB1_safe_q[9] = DFFEAS(EB1_safe_q[9]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L02 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella9~COUT
+--operation mode is arithmetic
+
+EB1L02 = CARRY(!EB1L81 # !EB1_safe_q[9]);
+
+
+--AB1_comb_4 is board:board|counter:count|slpf:cleaner|comb_4
+--operation mode is normal
+
+AB1_comb_4_lut_out = !U01_agb_out;
+AB1_comb_4 = DFFEAS(AB1_comb_4_lut_out, clk, VCC, , , , , , );
+
+
+--AB1_comb_5 is board:board|counter:count|slpf:cleaner|comb_5
+--operation mode is normal
+
+AB1_comb_5_lut_out = AB1_comb_4;
+AB1_comb_5 = DFFEAS(AB1_comb_5_lut_out, clk, VCC, , , , , , );
+
+
+--AB1_comb_6 is board:board|counter:count|slpf:cleaner|comb_6
+--operation mode is normal
+
+AB1_comb_6_lut_out = AB1_comb_5;
+AB1_comb_6 = DFFEAS(AB1_comb_6_lut_out, clk, VCC, , , , , , );
+
+
+--J1_clear is board:board|counter:count|clear
+--operation mode is normal
+
+J1_clear = AB1_comb_4 & AB1_comb_5 & AB1_comb_6 # !B1_enable;
+
+
+--U1_lcarry[8] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[8]
+--operation mode is arithmetic
+
+U1_lcarry[8] = CARRY(F6_FF8 & (!U1_lcarry[7] # !EB1_safe_q[8]) # !F6_FF8 & !EB1_safe_q[8] & !U1_lcarry[7]);
+
+
+--F6_FF9 is board:board|signal:AUXSIG|reg11:retreg|FF9
+--operation mode is normal
+
+F6_FF9_lut_out = F1_FF9;
+F6_FF9 = DFFEAS(F6_FF9_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF10 is board:board|reg11:aux_length_reg|FF10
+--operation mode is normal
+
+F1_FF10_lut_out = JB1_dffs[10];
+F1_FF10 = DFFEAS(F1_FF10_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--B1_signal_load is board:board|signal_load
+--operation mode is normal
+
+B1_signal_load_lut_out = HB1_w_anode14w[2];
+B1_signal_load = DFFEAS(B1_signal_load_lut_out, clk, VCC, , , , , , );
+
+
+--U8_lcarry[8] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[8]
+--operation mode is arithmetic
+
+U8_lcarry[8] = CARRY(EB1_safe_q[8] & (!U8_lcarry[7] # !F11_FF8) # !EB1_safe_q[8] & !F11_FF8 & !U8_lcarry[7]);
+
+
+--F11_FF9 is board:board|signal:MAINSIG|reg11:setreg|FF9
+--operation mode is normal
+
+F11_FF9_lut_out = Z3L2;
+F11_FF9 = DFFEAS(F11_FF9_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L1 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~202
+--operation mode is normal
+
+Z3L1_carry_eqn = Z3L3;
+Z3L1 = F2_FF10 $ F1_FF10 $ Z3L1_carry_eqn;
+
+
+--F4_FF10 is board:board|reg11:main_length_reg|FF10
+--operation mode is normal
+
+F4_FF10_lut_out = JB1_dffs[10];
+F4_FF10 = DFFEAS(F4_FF10_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF9 is board:board|signal:MAINSIG|reg11:retreg|FF9
+--operation mode is arithmetic
+
+F01_FF9_carry_eqn = F01L81;
+F01_FF9_lut_out = Z3L2 $ F4_FF9 $ F01_FF9_carry_eqn;
+F01_FF9 = DFFEAS(F01_FF9_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L02 is board:board|signal:MAINSIG|reg11:retreg|FF9~9
+--operation mode is arithmetic
+
+F01L02 = CARRY(Z3L2 & !F4_FF9 & !F01L81 # !Z3L2 & (!F01L81 # !F4_FF9));
+
+
+--U7_lcarry[8] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[8]
+--operation mode is arithmetic
+
+U7_lcarry[8] = CARRY(F01_FF8 & (!U7_lcarry[7] # !EB1_safe_q[8]) # !F01_FF8 & !EB1_safe_q[8] & !U7_lcarry[7]);
+
+
+--U9_lcarry[8] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[8]
+--operation mode is arithmetic
+
+U9_lcarry[8] = CARRY(F11_FF8 & (!U9_lcarry[7] # !F01_FF8) # !F11_FF8 & !F01_FF8 & !U9_lcarry[7]);
+
+
+--U2_lcarry[7] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[7]
+--operation mode is arithmetic
+
+U2_lcarry[7] = CARRY(!EB1_safe_q[7] & (!U2_lcarry[6]));
+
+
+--EB1_safe_q[8] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[8]
+--operation mode is arithmetic
+
+EB1_safe_q[8]_carry_eqn = EB1L61;
+EB1_safe_q[8]_lut_out = EB1_safe_q[8] $ (B1_enable & !EB1_safe_q[8]_carry_eqn);
+EB1_safe_q[8] = DFFEAS(EB1_safe_q[8]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L81 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella8~COUT
+--operation mode is arithmetic
+
+EB1L81 = CARRY(EB1_safe_q[8] & (!EB1L61));
+
+
+--U1_lcarry[7] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[7]
+--operation mode is arithmetic
+
+U1_lcarry[7] = CARRY(F6_FF7 & EB1_safe_q[7] & !U1_lcarry[6] # !F6_FF7 & (EB1_safe_q[7] # !U1_lcarry[6]));
+
+
+--F6_FF8 is board:board|signal:AUXSIG|reg11:retreg|FF8
+--operation mode is normal
+
+F6_FF8_lut_out = F1_FF8;
+F6_FF8 = DFFEAS(F6_FF8_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF9 is board:board|reg11:aux_length_reg|FF9
+--operation mode is normal
+
+F1_FF9_lut_out = JB1_dffs[9];
+F1_FF9 = DFFEAS(F1_FF9_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[10] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[10]
+--operation mode is normal
+
+JB1_dffs[10]_lut_out = JB1_dffs[9];
+JB1_dffs[10] = DFFEAS(JB1_dffs[10]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--JB1_dffs[11] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[11]
+--operation mode is normal
+
+JB1_dffs[11]_lut_out = JB1_dffs[10];
+JB1_dffs[11] = DFFEAS(JB1_dffs[11]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--JB1_dffs[14] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[14]
+--operation mode is normal
+
+JB1_dffs[14]_lut_out = JB1_dffs[13];
+JB1_dffs[14] = DFFEAS(JB1_dffs[14]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--C1_DCS1 is inblock:inblock|DCS1
+--operation mode is normal
+
+C1_DCS1_lut_out = !nchpsel;
+C1_DCS1 = DFFEAS(C1_DCS1_lut_out, clk, VCC, , , , , , );
+
+
+--C1_DCS2 is inblock:inblock|DCS2
+--operation mode is normal
+
+C1_DCS2_lut_out = C1_DCS1;
+C1_DCS2 = DFFEAS(C1_DCS2_lut_out, clk, VCC, , , , , , );
+
+
+--JB1_dffs[15] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[15]
+--operation mode is normal
+
+JB1_dffs[15]_lut_out = JB1_dffs[14];
+JB1_dffs[15] = DFFEAS(JB1_dffs[15]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--HB1L1 is inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component|decode_8fb:auto_generated|w_anode1w[2]~28
+--operation mode is normal
+
+HB1L1 = nchpsel & !JB1_dffs[15] & (C1_DCS1 # C1_DCS2);
+
+
+--JB1_dffs[12] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[12]
+--operation mode is normal
+
+JB1_dffs[12]_lut_out = JB1_dffs[11];
+JB1_dffs[12] = DFFEAS(JB1_dffs[12]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--JB1_dffs[13] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[13]
+--operation mode is normal
+
+JB1_dffs[13]_lut_out = JB1_dffs[12];
+JB1_dffs[13] = DFFEAS(JB1_dffs[13]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--W1L1 is board:board|edecode5:DECODE|lpm_decode:lpm_decode_component|decode_dfb:auto_generated|w_anode1w[3]~19
+--operation mode is normal
+
+W1L1 = JB1_dffs[14] & HB1L1 & !JB1_dffs[12] & !JB1_dffs[13];
+
+
+--W1_w_anode18w[3] is board:board|edecode5:DECODE|lpm_decode:lpm_decode_component|decode_dfb:auto_generated|w_anode18w[3]
+--operation mode is normal
+
+W1_w_anode18w[3] = JB1_dffs[11] & W1L1;
+
+
+--HB1_w_anode14w[2] is inblock:inblock|edecode4:BOARDSEL|lpm_decode:lpm_decode_component|decode_8fb:auto_generated|w_anode14w[2]
+--operation mode is normal
+
+HB1_w_anode14w[2] = JB1_dffs[14] & HB1L1;
+
+
+--U8_lcarry[7] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[7]
+--operation mode is arithmetic
+
+U8_lcarry[7] = CARRY(EB1_safe_q[7] & F11_FF7 & !U8_lcarry[6] # !EB1_safe_q[7] & (F11_FF7 # !U8_lcarry[6]));
+
+
+--F11_FF8 is board:board|signal:MAINSIG|reg11:setreg|FF8
+--operation mode is normal
+
+F11_FF8_lut_out = Z3L4;
+F11_FF8 = DFFEAS(F11_FF8_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L2 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~207
+--operation mode is arithmetic
+
+Z3L2_carry_eqn = Z3L5;
+Z3L2 = F2_FF9 $ F1_FF9 $ !Z3L2_carry_eqn;
+
+--Z3L3 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~209
+--operation mode is arithmetic
+
+Z3L3 = CARRY(F2_FF9 & (!Z3L5 # !F1_FF9) # !F2_FF9 & !F1_FF9 & !Z3L5);
+
+
+--F2_FF10 is board:board|reg11:aux_overlap_reg|FF10
+--operation mode is normal
+
+F2_FF10_lut_out = JB1_dffs[10];
+F2_FF10 = DFFEAS(F2_FF10_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--W1_w_anode38w[3] is board:board|edecode5:DECODE|lpm_decode:lpm_decode_component|decode_dfb:auto_generated|w_anode38w[3]
+--operation mode is normal
+
+W1_w_anode38w[3] = JB1_dffs[11] & JB1_dffs[12] & HB1_w_anode14w[2] & !JB1_dffs[13];
+
+
+--F4_FF9 is board:board|reg11:main_length_reg|FF9
+--operation mode is normal
+
+F4_FF9_lut_out = JB1_dffs[9];
+F4_FF9 = DFFEAS(F4_FF9_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF8 is board:board|signal:MAINSIG|reg11:retreg|FF8
+--operation mode is arithmetic
+
+F01_FF8_carry_eqn = F01L61;
+F01_FF8_lut_out = Z3L4 $ F4_FF8 $ !F01_FF8_carry_eqn;
+F01_FF8 = DFFEAS(F01_FF8_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L81 is board:board|signal:MAINSIG|reg11:retreg|FF8~9
+--operation mode is arithmetic
+
+F01L81 = CARRY(Z3L4 & (F4_FF8 # !F01L61) # !Z3L4 & F4_FF8 & !F01L61);
+
+
+--U7_lcarry[7] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[7]
+--operation mode is arithmetic
+
+U7_lcarry[7] = CARRY(F01_FF7 & EB1_safe_q[7] & !U7_lcarry[6] # !F01_FF7 & (EB1_safe_q[7] # !U7_lcarry[6]));
+
+
+--U9_lcarry[7] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[7]
+--operation mode is arithmetic
+
+U9_lcarry[7] = CARRY(F11_FF7 & F01_FF7 & !U9_lcarry[6] # !F11_FF7 & (F01_FF7 # !U9_lcarry[6]));
+
+
+--U2_lcarry[6] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[6]
+--operation mode is arithmetic
+
+U2_lcarry[6] = CARRY(EB1_safe_q[6] # !U2_lcarry[5]);
+
+
+--EB1_safe_q[7] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[7]
+--operation mode is arithmetic
+
+EB1_safe_q[7]_carry_eqn = EB1L41;
+EB1_safe_q[7]_lut_out = EB1_safe_q[7] $ (B1_enable & EB1_safe_q[7]_carry_eqn);
+EB1_safe_q[7] = DFFEAS(EB1_safe_q[7]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L61 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella7~COUT
+--operation mode is arithmetic
+
+EB1L61 = CARRY(!EB1L41 # !EB1_safe_q[7]);
+
+
+--U01_lcarry[9] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[9]
+--operation mode is arithmetic
+
+U01_lcarry[9] = CARRY(F5_FF9 & EB1_safe_q[9] & !U01_lcarry[8] # !F5_FF9 & (EB1_safe_q[9] # !U01_lcarry[8]));
+
+
+--F5_FF10 is board:board|reg11:period_reg|FF10
+--operation mode is normal
+
+F5_FF10_lut_out = JB1_dffs[10];
+F5_FF10 = DFFEAS(F5_FF10_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--U01_agb_out is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|agb_out
+--operation mode is normal
+
+U01_agb_out_carry_eqn = U01_lcarry[9];
+U01_agb_out = LCELL(F5_FF10 & (!EB1_safe_q[10] # !U01_agb_out_carry_eqn) # !F5_FF10 & !U01_agb_out_carry_eqn & !EB1_safe_q[10]);
+
+
+--U1_lcarry[6] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[6]
+--operation mode is arithmetic
+
+U1_lcarry[6] = CARRY(F6_FF6 & (!U1_lcarry[5] # !EB1_safe_q[6]) # !F6_FF6 & !EB1_safe_q[6] & !U1_lcarry[5]);
+
+
+--F6_FF7 is board:board|signal:AUXSIG|reg11:retreg|FF7
+--operation mode is normal
+
+F6_FF7_lut_out = F1_FF7;
+F6_FF7 = DFFEAS(F6_FF7_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF8 is board:board|reg11:aux_length_reg|FF8
+--operation mode is normal
+
+F1_FF8_lut_out = JB1_dffs[8];
+F1_FF8 = DFFEAS(F1_FF8_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[9] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[9]
+--operation mode is normal
+
+JB1_dffs[9]_lut_out = JB1_dffs[8];
+JB1_dffs[9] = DFFEAS(JB1_dffs[9]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--U8_lcarry[6] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[6]
+--operation mode is arithmetic
+
+U8_lcarry[6] = CARRY(EB1_safe_q[6] & (!U8_lcarry[5] # !F11_FF6) # !EB1_safe_q[6] & !F11_FF6 & !U8_lcarry[5]);
+
+
+--F11_FF7 is board:board|signal:MAINSIG|reg11:setreg|FF7
+--operation mode is normal
+
+F11_FF7_lut_out = Z3L6;
+F11_FF7 = DFFEAS(F11_FF7_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L4 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~212
+--operation mode is arithmetic
+
+Z3L4_carry_eqn = Z3L7;
+Z3L4 = F2_FF8 $ F1_FF8 $ Z3L4_carry_eqn;
+
+--Z3L5 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~214
+--operation mode is arithmetic
+
+Z3L5 = CARRY(F2_FF8 & F1_FF8 & !Z3L7 # !F2_FF8 & (F1_FF8 # !Z3L7));
+
+
+--F2_FF9 is board:board|reg11:aux_overlap_reg|FF9
+--operation mode is normal
+
+F2_FF9_lut_out = JB1_dffs[9];
+F2_FF9 = DFFEAS(F2_FF9_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--W1_w_anode28w[3] is board:board|edecode5:DECODE|lpm_decode:lpm_decode_component|decode_dfb:auto_generated|w_anode28w[3]
+--operation mode is normal
+
+W1_w_anode28w[3] = JB1_dffs[12] & HB1_w_anode14w[2] & !JB1_dffs[11] & !JB1_dffs[13];
+
+
+--F4_FF8 is board:board|reg11:main_length_reg|FF8
+--operation mode is normal
+
+F4_FF8_lut_out = JB1_dffs[8];
+F4_FF8 = DFFEAS(F4_FF8_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF7 is board:board|signal:MAINSIG|reg11:retreg|FF7
+--operation mode is arithmetic
+
+F01_FF7_carry_eqn = F01L41;
+F01_FF7_lut_out = Z3L6 $ F4_FF7 $ F01_FF7_carry_eqn;
+F01_FF7 = DFFEAS(F01_FF7_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L61 is board:board|signal:MAINSIG|reg11:retreg|FF7~9
+--operation mode is arithmetic
+
+F01L61 = CARRY(Z3L6 & !F4_FF7 & !F01L41 # !Z3L6 & (!F01L41 # !F4_FF7));
+
+
+--U7_lcarry[6] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[6]
+--operation mode is arithmetic
+
+U7_lcarry[6] = CARRY(F01_FF6 & (!U7_lcarry[5] # !EB1_safe_q[6]) # !F01_FF6 & !EB1_safe_q[6] & !U7_lcarry[5]);
+
+
+--U9_lcarry[6] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[6]
+--operation mode is arithmetic
+
+U9_lcarry[6] = CARRY(F11_FF6 & (!U9_lcarry[5] # !F01_FF6) # !F11_FF6 & !F01_FF6 & !U9_lcarry[5]);
+
+
+--U2_lcarry[5] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[5]
+--operation mode is arithmetic
+
+U2_lcarry[5] = CARRY(!EB1_safe_q[5] & (!U2_lcarry[4]));
+
+
+--EB1_safe_q[6] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[6]
+--operation mode is arithmetic
+
+EB1_safe_q[6]_carry_eqn = EB1L21;
+EB1_safe_q[6]_lut_out = EB1_safe_q[6] $ (B1_enable & !EB1_safe_q[6]_carry_eqn);
+EB1_safe_q[6] = DFFEAS(EB1_safe_q[6]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L41 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella6~COUT
+--operation mode is arithmetic
+
+EB1L41 = CARRY(EB1_safe_q[6] & (!EB1L21));
+
+
+--U01_lcarry[8] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[8]
+--operation mode is arithmetic
+
+U01_lcarry[8] = CARRY(F5_FF8 & (!U01_lcarry[7] # !EB1_safe_q[8]) # !F5_FF8 & !EB1_safe_q[8] & !U01_lcarry[7]);
+
+
+--F5_FF9 is board:board|reg11:period_reg|FF9
+--operation mode is normal
+
+F5_FF9_lut_out = JB1_dffs[9];
+F5_FF9 = DFFEAS(F5_FF9_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--B1_countload is board:board|countload
+--operation mode is normal
+
+B1_countload = W1L1 & (HB1L1 & !JB1_dffs[14] # !JB1_dffs[11]) # !W1L1 & HB1L1 & (!JB1_dffs[14]);
+
+
+--U1_lcarry[5] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[5]
+--operation mode is arithmetic
+
+U1_lcarry[5] = CARRY(F6_FF5 & EB1_safe_q[5] & !U1_lcarry[4] # !F6_FF5 & (EB1_safe_q[5] # !U1_lcarry[4]));
+
+
+--F6_FF6 is board:board|signal:AUXSIG|reg11:retreg|FF6
+--operation mode is normal
+
+F6_FF6_lut_out = F1_FF6;
+F6_FF6 = DFFEAS(F6_FF6_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF7 is board:board|reg11:aux_length_reg|FF7
+--operation mode is normal
+
+F1_FF7_lut_out = JB1_dffs[7];
+F1_FF7 = DFFEAS(F1_FF7_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[8] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[8]
+--operation mode is normal
+
+JB1_dffs[8]_lut_out = JB1_dffs[7];
+JB1_dffs[8] = DFFEAS(JB1_dffs[8]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--U8_lcarry[5] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[5]
+--operation mode is arithmetic
+
+U8_lcarry[5] = CARRY(EB1_safe_q[5] & F11_FF5 & !U8_lcarry[4] # !EB1_safe_q[5] & (F11_FF5 # !U8_lcarry[4]));
+
+
+--F11_FF6 is board:board|signal:MAINSIG|reg11:setreg|FF6
+--operation mode is normal
+
+F11_FF6_lut_out = Z3L8;
+F11_FF6 = DFFEAS(F11_FF6_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L6 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~217
+--operation mode is arithmetic
+
+Z3L6_carry_eqn = Z3L9;
+Z3L6 = F2_FF7 $ F1_FF7 $ !Z3L6_carry_eqn;
+
+--Z3L7 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~219
+--operation mode is arithmetic
+
+Z3L7 = CARRY(F2_FF7 & (!Z3L9 # !F1_FF7) # !F2_FF7 & !F1_FF7 & !Z3L9);
+
+
+--F2_FF8 is board:board|reg11:aux_overlap_reg|FF8
+--operation mode is normal
+
+F2_FF8_lut_out = JB1_dffs[8];
+F2_FF8 = DFFEAS(F2_FF8_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF7 is board:board|reg11:main_length_reg|FF7
+--operation mode is normal
+
+F4_FF7_lut_out = JB1_dffs[7];
+F4_FF7 = DFFEAS(F4_FF7_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF6 is board:board|signal:MAINSIG|reg11:retreg|FF6
+--operation mode is arithmetic
+
+F01_FF6_carry_eqn = F01L21;
+F01_FF6_lut_out = Z3L8 $ F4_FF6 $ !F01_FF6_carry_eqn;
+F01_FF6 = DFFEAS(F01_FF6_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L41 is board:board|signal:MAINSIG|reg11:retreg|FF6~9
+--operation mode is arithmetic
+
+F01L41 = CARRY(Z3L8 & (F4_FF6 # !F01L21) # !Z3L8 & F4_FF6 & !F01L21);
+
+
+--U7_lcarry[5] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[5]
+--operation mode is arithmetic
+
+U7_lcarry[5] = CARRY(F01_FF5 & EB1_safe_q[5] & !U7_lcarry[4] # !F01_FF5 & (EB1_safe_q[5] # !U7_lcarry[4]));
+
+
+--U9_lcarry[5] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[5]
+--operation mode is arithmetic
+
+U9_lcarry[5] = CARRY(F11_FF5 & F01_FF5 & !U9_lcarry[4] # !F11_FF5 & (F01_FF5 # !U9_lcarry[4]));
+
+
+--U2_lcarry[4] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[4]
+--operation mode is arithmetic
+
+U2_lcarry[4] = CARRY(EB1_safe_q[4] # !U2_lcarry[3]);
+
+
+--EB1_safe_q[5] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[5]
+--operation mode is arithmetic
+
+EB1_safe_q[5]_carry_eqn = EB1L01;
+EB1_safe_q[5]_lut_out = EB1_safe_q[5] $ (B1_enable & EB1_safe_q[5]_carry_eqn);
+EB1_safe_q[5] = DFFEAS(EB1_safe_q[5]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L21 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella5~COUT
+--operation mode is arithmetic
+
+EB1L21 = CARRY(!EB1L01 # !EB1_safe_q[5]);
+
+
+--U01_lcarry[7] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[7]
+--operation mode is arithmetic
+
+U01_lcarry[7] = CARRY(F5_FF7 & EB1_safe_q[7] & !U01_lcarry[6] # !F5_FF7 & (EB1_safe_q[7] # !U01_lcarry[6]));
+
+
+--F5_FF8 is board:board|reg11:period_reg|FF8
+--operation mode is normal
+
+F5_FF8_lut_out = JB1_dffs[8];
+F5_FF8 = DFFEAS(F5_FF8_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--U1_lcarry[4] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[4]
+--operation mode is arithmetic
+
+U1_lcarry[4] = CARRY(F6_FF4 & (!U1_lcarry[3] # !EB1_safe_q[4]) # !F6_FF4 & !EB1_safe_q[4] & !U1_lcarry[3]);
+
+
+--F6_FF5 is board:board|signal:AUXSIG|reg11:retreg|FF5
+--operation mode is normal
+
+F6_FF5_lut_out = F1_FF5;
+F6_FF5 = DFFEAS(F6_FF5_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF6 is board:board|reg11:aux_length_reg|FF6
+--operation mode is normal
+
+F1_FF6_lut_out = JB1_dffs[6];
+F1_FF6 = DFFEAS(F1_FF6_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[7] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[7]
+--operation mode is normal
+
+JB1_dffs[7]_lut_out = JB1_dffs[6];
+JB1_dffs[7] = DFFEAS(JB1_dffs[7]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--U8_lcarry[4] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[4]
+--operation mode is arithmetic
+
+U8_lcarry[4] = CARRY(EB1_safe_q[4] & (!U8_lcarry[3] # !F11_FF4) # !EB1_safe_q[4] & !F11_FF4 & !U8_lcarry[3]);
+
+
+--F11_FF5 is board:board|signal:MAINSIG|reg11:setreg|FF5
+--operation mode is normal
+
+F11_FF5_lut_out = Z3L01;
+F11_FF5 = DFFEAS(F11_FF5_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L8 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~222
+--operation mode is arithmetic
+
+Z3L8_carry_eqn = Z3L11;
+Z3L8 = F2_FF6 $ F1_FF6 $ Z3L8_carry_eqn;
+
+--Z3L9 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~224
+--operation mode is arithmetic
+
+Z3L9 = CARRY(F2_FF6 & F1_FF6 & !Z3L11 # !F2_FF6 & (F1_FF6 # !Z3L11));
+
+
+--F2_FF7 is board:board|reg11:aux_overlap_reg|FF7
+--operation mode is normal
+
+F2_FF7_lut_out = JB1_dffs[7];
+F2_FF7 = DFFEAS(F2_FF7_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF6 is board:board|reg11:main_length_reg|FF6
+--operation mode is normal
+
+F4_FF6_lut_out = JB1_dffs[6];
+F4_FF6 = DFFEAS(F4_FF6_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF5 is board:board|signal:MAINSIG|reg11:retreg|FF5
+--operation mode is arithmetic
+
+F01_FF5_carry_eqn = F01L01;
+F01_FF5_lut_out = Z3L01 $ F4_FF5 $ F01_FF5_carry_eqn;
+F01_FF5 = DFFEAS(F01_FF5_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L21 is board:board|signal:MAINSIG|reg11:retreg|FF5~9
+--operation mode is arithmetic
+
+F01L21 = CARRY(Z3L01 & !F4_FF5 & !F01L01 # !Z3L01 & (!F01L01 # !F4_FF5));
+
+
+--U7_lcarry[4] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[4]
+--operation mode is arithmetic
+
+U7_lcarry[4] = CARRY(F01_FF4 & (!U7_lcarry[3] # !EB1_safe_q[4]) # !F01_FF4 & !EB1_safe_q[4] & !U7_lcarry[3]);
+
+
+--U9_lcarry[4] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[4]
+--operation mode is arithmetic
+
+U9_lcarry[4] = CARRY(F11_FF4 & (!U9_lcarry[3] # !F01_FF4) # !F11_FF4 & !F01_FF4 & !U9_lcarry[3]);
+
+
+--U2_lcarry[3] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[3]
+--operation mode is arithmetic
+
+U2_lcarry[3] = CARRY(!EB1_safe_q[3] & (!U2_lcarry[2]));
+
+
+--EB1_safe_q[4] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[4]
+--operation mode is arithmetic
+
+EB1_safe_q[4]_carry_eqn = EB1L8;
+EB1_safe_q[4]_lut_out = EB1_safe_q[4] $ (B1_enable & !EB1_safe_q[4]_carry_eqn);
+EB1_safe_q[4] = DFFEAS(EB1_safe_q[4]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L01 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella4~COUT
+--operation mode is arithmetic
+
+EB1L01 = CARRY(EB1_safe_q[4] & (!EB1L8));
+
+
+--U01_lcarry[6] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[6]
+--operation mode is arithmetic
+
+U01_lcarry[6] = CARRY(F5_FF6 & (!U01_lcarry[5] # !EB1_safe_q[6]) # !F5_FF6 & !EB1_safe_q[6] & !U01_lcarry[5]);
+
+
+--F5_FF7 is board:board|reg11:period_reg|FF7
+--operation mode is normal
+
+F5_FF7_lut_out = JB1_dffs[7];
+F5_FF7 = DFFEAS(F5_FF7_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--U1_lcarry[3] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[3]
+--operation mode is arithmetic
+
+U1_lcarry[3] = CARRY(F6_FF3 & EB1_safe_q[3] & !U1_lcarry[2] # !F6_FF3 & (EB1_safe_q[3] # !U1_lcarry[2]));
+
+
+--F6_FF4 is board:board|signal:AUXSIG|reg11:retreg|FF4
+--operation mode is normal
+
+F6_FF4_lut_out = F1_FF4;
+F6_FF4 = DFFEAS(F6_FF4_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF5 is board:board|reg11:aux_length_reg|FF5
+--operation mode is normal
+
+F1_FF5_lut_out = JB1_dffs[5];
+F1_FF5 = DFFEAS(F1_FF5_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[6] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[6]
+--operation mode is normal
+
+JB1_dffs[6]_lut_out = JB1_dffs[5];
+JB1_dffs[6] = DFFEAS(JB1_dffs[6]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--U8_lcarry[3] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[3]
+--operation mode is arithmetic
+
+U8_lcarry[3] = CARRY(EB1_safe_q[3] & F11_FF3 & !U8_lcarry[2] # !EB1_safe_q[3] & (F11_FF3 # !U8_lcarry[2]));
+
+
+--F11_FF4 is board:board|signal:MAINSIG|reg11:setreg|FF4
+--operation mode is normal
+
+F11_FF4_lut_out = Z3L21;
+F11_FF4 = DFFEAS(F11_FF4_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L01 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~227
+--operation mode is arithmetic
+
+Z3L01_carry_eqn = Z3L31;
+Z3L01 = F2_FF5 $ F1_FF5 $ !Z3L01_carry_eqn;
+
+--Z3L11 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~229
+--operation mode is arithmetic
+
+Z3L11 = CARRY(F2_FF5 & (!Z3L31 # !F1_FF5) # !F2_FF5 & !F1_FF5 & !Z3L31);
+
+
+--F2_FF6 is board:board|reg11:aux_overlap_reg|FF6
+--operation mode is normal
+
+F2_FF6_lut_out = JB1_dffs[6];
+F2_FF6 = DFFEAS(F2_FF6_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF5 is board:board|reg11:main_length_reg|FF5
+--operation mode is normal
+
+F4_FF5_lut_out = JB1_dffs[5];
+F4_FF5 = DFFEAS(F4_FF5_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF4 is board:board|signal:MAINSIG|reg11:retreg|FF4
+--operation mode is arithmetic
+
+F01_FF4_carry_eqn = F01L8;
+F01_FF4_lut_out = Z3L21 $ F4_FF4 $ !F01_FF4_carry_eqn;
+F01_FF4 = DFFEAS(F01_FF4_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L01 is board:board|signal:MAINSIG|reg11:retreg|FF4~9
+--operation mode is arithmetic
+
+F01L01 = CARRY(Z3L21 & (F4_FF4 # !F01L8) # !Z3L21 & F4_FF4 & !F01L8);
+
+
+--U7_lcarry[3] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[3]
+--operation mode is arithmetic
+
+U7_lcarry[3] = CARRY(F01_FF3 & EB1_safe_q[3] & !U7_lcarry[2] # !F01_FF3 & (EB1_safe_q[3] # !U7_lcarry[2]));
+
+
+--U9_lcarry[3] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[3]
+--operation mode is arithmetic
+
+U9_lcarry[3] = CARRY(F11_FF3 & F01_FF3 & !U9_lcarry[2] # !F11_FF3 & (F01_FF3 # !U9_lcarry[2]));
+
+
+--U2_lcarry[2] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[2]
+--operation mode is arithmetic
+
+U2_lcarry[2] = CARRY(EB1_safe_q[2] # !U2_lcarry[1]);
+
+
+--EB1_safe_q[3] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[3]
+--operation mode is arithmetic
+
+EB1_safe_q[3]_carry_eqn = EB1L6;
+EB1_safe_q[3]_lut_out = EB1_safe_q[3] $ (B1_enable & EB1_safe_q[3]_carry_eqn);
+EB1_safe_q[3] = DFFEAS(EB1_safe_q[3]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L8 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella3~COUT
+--operation mode is arithmetic
+
+EB1L8 = CARRY(!EB1L6 # !EB1_safe_q[3]);
+
+
+--U01_lcarry[5] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[5]
+--operation mode is arithmetic
+
+U01_lcarry[5] = CARRY(F5_FF5 & EB1_safe_q[5] & !U01_lcarry[4] # !F5_FF5 & (EB1_safe_q[5] # !U01_lcarry[4]));
+
+
+--F5_FF6 is board:board|reg11:period_reg|FF6
+--operation mode is normal
+
+F5_FF6_lut_out = JB1_dffs[6];
+F5_FF6 = DFFEAS(F5_FF6_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--U1_lcarry[2] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[2]
+--operation mode is arithmetic
+
+U1_lcarry[2] = CARRY(F6_FF2 & (!U1_lcarry[1] # !EB1_safe_q[2]) # !F6_FF2 & !EB1_safe_q[2] & !U1_lcarry[1]);
+
+
+--F6_FF3 is board:board|signal:AUXSIG|reg11:retreg|FF3
+--operation mode is normal
+
+F6_FF3_lut_out = F1_FF3;
+F6_FF3 = DFFEAS(F6_FF3_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF4 is board:board|reg11:aux_length_reg|FF4
+--operation mode is normal
+
+F1_FF4_lut_out = JB1_dffs[4];
+F1_FF4 = DFFEAS(F1_FF4_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[5] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[5]
+--operation mode is normal
+
+JB1_dffs[5]_lut_out = JB1_dffs[4];
+JB1_dffs[5] = DFFEAS(JB1_dffs[5]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--U8_lcarry[2] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[2]
+--operation mode is arithmetic
+
+U8_lcarry[2] = CARRY(EB1_safe_q[2] & (!U8_lcarry[1] # !F11_FF2) # !EB1_safe_q[2] & !F11_FF2 & !U8_lcarry[1]);
+
+
+--F11_FF3 is board:board|signal:MAINSIG|reg11:setreg|FF3
+--operation mode is normal
+
+F11_FF3_lut_out = Z3L41;
+F11_FF3 = DFFEAS(F11_FF3_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L21 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~232
+--operation mode is arithmetic
+
+Z3L21_carry_eqn = Z3L51;
+Z3L21 = F2_FF4 $ F1_FF4 $ Z3L21_carry_eqn;
+
+--Z3L31 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~234
+--operation mode is arithmetic
+
+Z3L31 = CARRY(F2_FF4 & F1_FF4 & !Z3L51 # !F2_FF4 & (F1_FF4 # !Z3L51));
+
+
+--F2_FF5 is board:board|reg11:aux_overlap_reg|FF5
+--operation mode is normal
+
+F2_FF5_lut_out = JB1_dffs[5];
+F2_FF5 = DFFEAS(F2_FF5_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF4 is board:board|reg11:main_length_reg|FF4
+--operation mode is normal
+
+F4_FF4_lut_out = JB1_dffs[4];
+F4_FF4 = DFFEAS(F4_FF4_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF3 is board:board|signal:MAINSIG|reg11:retreg|FF3
+--operation mode is arithmetic
+
+F01_FF3_carry_eqn = F01L6;
+F01_FF3_lut_out = Z3L41 $ F4_FF3 $ F01_FF3_carry_eqn;
+F01_FF3 = DFFEAS(F01_FF3_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L8 is board:board|signal:MAINSIG|reg11:retreg|FF3~9
+--operation mode is arithmetic
+
+F01L8 = CARRY(Z3L41 & !F4_FF3 & !F01L6 # !Z3L41 & (!F01L6 # !F4_FF3));
+
+
+--U7_lcarry[2] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[2]
+--operation mode is arithmetic
+
+U7_lcarry[2] = CARRY(F01_FF2 & (!U7_lcarry[1] # !EB1_safe_q[2]) # !F01_FF2 & !EB1_safe_q[2] & !U7_lcarry[1]);
+
+
+--U9_lcarry[2] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[2]
+--operation mode is arithmetic
+
+U9_lcarry[2] = CARRY(F11_FF2 & (!U9_lcarry[1] # !F01_FF2) # !F11_FF2 & !F01_FF2 & !U9_lcarry[1]);
+
+
+--U2_lcarry[1] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[1]
+--operation mode is arithmetic
+
+U2_lcarry[1] = CARRY(!EB1_safe_q[1] & (!U2_lcarry[0]));
+
+
+--EB1_safe_q[2] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[2]
+--operation mode is arithmetic
+
+EB1_safe_q[2]_carry_eqn = EB1L4;
+EB1_safe_q[2]_lut_out = EB1_safe_q[2] $ (B1_enable & !EB1_safe_q[2]_carry_eqn);
+EB1_safe_q[2] = DFFEAS(EB1_safe_q[2]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L6 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella2~COUT
+--operation mode is arithmetic
+
+EB1L6 = CARRY(EB1_safe_q[2] & (!EB1L4));
+
+
+--U01_lcarry[4] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[4]
+--operation mode is arithmetic
+
+U01_lcarry[4] = CARRY(F5_FF4 & (!U01_lcarry[3] # !EB1_safe_q[4]) # !F5_FF4 & !EB1_safe_q[4] & !U01_lcarry[3]);
+
+
+--F5_FF5 is board:board|reg11:period_reg|FF5
+--operation mode is normal
+
+F5_FF5_lut_out = JB1_dffs[5];
+F5_FF5 = DFFEAS(F5_FF5_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--U1_lcarry[1] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[1]
+--operation mode is arithmetic
+
+U1_lcarry[1] = CARRY(F6_FF1 & EB1_safe_q[1] & !U1_lcarry[0] # !F6_FF1 & (EB1_safe_q[1] # !U1_lcarry[0]));
+
+
+--F6_FF2 is board:board|signal:AUXSIG|reg11:retreg|FF2
+--operation mode is normal
+
+F6_FF2_lut_out = F1_FF2;
+F6_FF2 = DFFEAS(F6_FF2_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF3 is board:board|reg11:aux_length_reg|FF3
+--operation mode is normal
+
+F1_FF3_lut_out = JB1_dffs[3];
+F1_FF3 = DFFEAS(F1_FF3_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[4] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[4]
+--operation mode is normal
+
+JB1_dffs[4]_lut_out = JB1_dffs[3];
+JB1_dffs[4] = DFFEAS(JB1_dffs[4]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--U8_lcarry[1] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[1]
+--operation mode is arithmetic
+
+U8_lcarry[1] = CARRY(EB1_safe_q[1] & F11_FF1 & !U8_lcarry[0] # !EB1_safe_q[1] & (F11_FF1 # !U8_lcarry[0]));
+
+
+--F11_FF2 is board:board|signal:MAINSIG|reg11:setreg|FF2
+--operation mode is normal
+
+F11_FF2_lut_out = Z3L61;
+F11_FF2 = DFFEAS(F11_FF2_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L41 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~237
+--operation mode is arithmetic
+
+Z3L41_carry_eqn = Z3L71;
+Z3L41 = F2_FF3 $ F1_FF3 $ !Z3L41_carry_eqn;
+
+--Z3L51 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~239
+--operation mode is arithmetic
+
+Z3L51 = CARRY(F2_FF3 & (!Z3L71 # !F1_FF3) # !F2_FF3 & !F1_FF3 & !Z3L71);
+
+
+--F2_FF4 is board:board|reg11:aux_overlap_reg|FF4
+--operation mode is normal
+
+F2_FF4_lut_out = JB1_dffs[4];
+F2_FF4 = DFFEAS(F2_FF4_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF3 is board:board|reg11:main_length_reg|FF3
+--operation mode is normal
+
+F4_FF3_lut_out = JB1_dffs[3];
+F4_FF3 = DFFEAS(F4_FF3_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF2 is board:board|signal:MAINSIG|reg11:retreg|FF2
+--operation mode is arithmetic
+
+F01_FF2_carry_eqn = F01L4;
+F01_FF2_lut_out = Z3L61 $ F4_FF2 $ !F01_FF2_carry_eqn;
+F01_FF2 = DFFEAS(F01_FF2_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L6 is board:board|signal:MAINSIG|reg11:retreg|FF2~9
+--operation mode is arithmetic
+
+F01L6 = CARRY(Z3L61 & (F4_FF2 # !F01L4) # !Z3L61 & F4_FF2 & !F01L4);
+
+
+--U7_lcarry[1] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[1]
+--operation mode is arithmetic
+
+U7_lcarry[1] = CARRY(F01_FF1 & EB1_safe_q[1] & !U7_lcarry[0] # !F01_FF1 & (EB1_safe_q[1] # !U7_lcarry[0]));
+
+
+--U9_lcarry[1] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[1]
+--operation mode is arithmetic
+
+U9_lcarry[1] = CARRY(F11_FF1 & F01_FF1 & !U9_lcarry[0] # !F11_FF1 & (F01_FF1 # !U9_lcarry[0]));
+
+
+--EB1_safe_q[1] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[1]
+--operation mode is arithmetic
+
+EB1_safe_q[1]_carry_eqn = EB1L2;
+EB1_safe_q[1]_lut_out = EB1_safe_q[1] $ (B1_enable & EB1_safe_q[1]_carry_eqn);
+EB1_safe_q[1] = DFFEAS(EB1_safe_q[1]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L4 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella1~COUT
+--operation mode is arithmetic
+
+EB1L4 = CARRY(!EB1L2 # !EB1_safe_q[1]);
+
+
+--U2L5 is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[0]~89
+--operation mode is arithmetic
+
+U2L5 = EB1_safe_q[0];
+
+--U2_lcarry[0] is board:board|signal:AUXSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[0]
+--operation mode is arithmetic
+
+U2_lcarry[0] = CARRY(EB1_safe_q[0]);
+
+
+--U01_lcarry[3] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[3]
+--operation mode is arithmetic
+
+U01_lcarry[3] = CARRY(F5_FF3 & EB1_safe_q[3] & !U01_lcarry[2] # !F5_FF3 & (EB1_safe_q[3] # !U01_lcarry[2]));
+
+
+--F5_FF4 is board:board|reg11:period_reg|FF4
+--operation mode is normal
+
+F5_FF4_lut_out = JB1_dffs[4];
+F5_FF4 = DFFEAS(F5_FF4_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--U1_lcarry[0] is board:board|signal:AUXSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[0]
+--operation mode is arithmetic
+
+U1_lcarry[0] = CARRY(F6_FF0 & !U2L5);
+
+
+--F6_FF1 is board:board|signal:AUXSIG|reg11:retreg|FF1
+--operation mode is normal
+
+F6_FF1_lut_out = F1_FF1;
+F6_FF1 = DFFEAS(F6_FF1_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF2 is board:board|reg11:aux_length_reg|FF2
+--operation mode is normal
+
+F1_FF2_lut_out = JB1_dffs[2];
+F1_FF2 = DFFEAS(F1_FF2_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[3] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[3]
+--operation mode is normal
+
+JB1_dffs[3]_lut_out = JB1_dffs[2];
+JB1_dffs[3] = DFFEAS(JB1_dffs[3]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--U8_lcarry[0] is board:board|signal:MAINSIG|gt11:setcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[0]
+--operation mode is arithmetic
+
+U8_lcarry[0] = CARRY(U2L5 & !F11_FF0);
+
+
+--F11_FF1 is board:board|signal:MAINSIG|reg11:setreg|FF1
+--operation mode is normal
+
+F11_FF1_lut_out = Z3L81;
+F11_FF1 = DFFEAS(F11_FF1_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L61 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~242
+--operation mode is arithmetic
+
+Z3L61_carry_eqn = Z3L91;
+Z3L61 = F2_FF2 $ F1_FF2 $ Z3L61_carry_eqn;
+
+--Z3L71 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~244
+--operation mode is arithmetic
+
+Z3L71 = CARRY(F2_FF2 & F1_FF2 & !Z3L91 # !F2_FF2 & (F1_FF2 # !Z3L91));
+
+
+--F2_FF3 is board:board|reg11:aux_overlap_reg|FF3
+--operation mode is normal
+
+F2_FF3_lut_out = JB1_dffs[3];
+F2_FF3 = DFFEAS(F2_FF3_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF2 is board:board|reg11:main_length_reg|FF2
+--operation mode is normal
+
+F4_FF2_lut_out = JB1_dffs[2];
+F4_FF2 = DFFEAS(F4_FF2_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF1 is board:board|signal:MAINSIG|reg11:retreg|FF1
+--operation mode is arithmetic
+
+F01_FF1_carry_eqn = F01L2;
+F01_FF1_lut_out = Z3L81 $ F4_FF1 $ F01_FF1_carry_eqn;
+F01_FF1 = DFFEAS(F01_FF1_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L4 is board:board|signal:MAINSIG|reg11:retreg|FF1~9
+--operation mode is arithmetic
+
+F01L4 = CARRY(Z3L81 & !F4_FF1 & !F01L2 # !Z3L81 & (!F01L2 # !F4_FF1));
+
+
+--U7_lcarry[0] is board:board|signal:MAINSIG|lt11:retcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[0]
+--operation mode is arithmetic
+
+U7_lcarry[0] = CARRY(F01_FF0 & !U2L5);
+
+
+--U9_lcarry[0] is board:board|signal:MAINSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[0]
+--operation mode is arithmetic
+
+U9_lcarry[0] = CARRY(F11_FF0 & !F01_FF0);
+
+
+--EB1_safe_q[0] is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|safe_q[0]
+--operation mode is arithmetic
+
+EB1_safe_q[0]_lut_out = U2L5 $ B1_enable;
+EB1_safe_q[0] = DFFEAS(EB1_safe_q[0]_lut_out, clk, VCC, , , , , J1_clear, );
+
+--EB1L2 is board:board|counter:count|count11:count11|lpm_counter:lpm_counter_component|cntr_gr7:auto_generated|counter_cella0~COUT
+--operation mode is arithmetic
+
+EB1L2 = CARRY(U2L5);
+
+
+--U01_lcarry[2] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[2]
+--operation mode is arithmetic
+
+U01_lcarry[2] = CARRY(F5_FF2 & (!U01_lcarry[1] # !EB1_safe_q[2]) # !F5_FF2 & !EB1_safe_q[2] & !U01_lcarry[1]);
+
+
+--F5_FF3 is board:board|reg11:period_reg|FF3
+--operation mode is normal
+
+F5_FF3_lut_out = JB1_dffs[3];
+F5_FF3 = DFFEAS(F5_FF3_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--F6_FF0 is board:board|signal:AUXSIG|reg11:retreg|FF0
+--operation mode is normal
+
+F6_FF0_lut_out = F1_FF0;
+F6_FF0 = DFFEAS(F6_FF0_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--F1_FF1 is board:board|reg11:aux_length_reg|FF1
+--operation mode is normal
+
+F1_FF1_lut_out = JB1_dffs[1];
+F1_FF1 = DFFEAS(F1_FF1_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[2] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[2]
+--operation mode is normal
+
+JB1_dffs[2]_lut_out = JB1_dffs[1];
+JB1_dffs[2] = DFFEAS(JB1_dffs[2]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--F11_FF0 is board:board|signal:MAINSIG|reg11:setreg|FF0
+--operation mode is normal
+
+F11_FF0_lut_out = Z3L02;
+F11_FF0 = DFFEAS(F11_FF0_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+
+--Z3L81 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~247
+--operation mode is arithmetic
+
+Z3L81_carry_eqn = Z3L12;
+Z3L81 = F2_FF1 $ F1_FF1 $ !Z3L81_carry_eqn;
+
+--Z3L91 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~249
+--operation mode is arithmetic
+
+Z3L91 = CARRY(F2_FF1 & (!Z3L12 # !F1_FF1) # !F2_FF1 & !F1_FF1 & !Z3L12);
+
+
+--F2_FF2 is board:board|reg11:aux_overlap_reg|FF2
+--operation mode is normal
+
+F2_FF2_lut_out = JB1_dffs[2];
+F2_FF2 = DFFEAS(F2_FF2_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF1 is board:board|reg11:main_length_reg|FF1
+--operation mode is normal
+
+F4_FF1_lut_out = JB1_dffs[1];
+F4_FF1 = DFFEAS(F4_FF1_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--F01_FF0 is board:board|signal:MAINSIG|reg11:retreg|FF0
+--operation mode is arithmetic
+
+F01_FF0_lut_out = Z3L02 $ F4_FF0;
+F01_FF0 = DFFEAS(F01_FF0_lut_out, clk, VCC, , B1_signal_load, , , , );
+
+--F01L2 is board:board|signal:MAINSIG|reg11:retreg|FF0~15
+--operation mode is arithmetic
+
+F01L2 = CARRY(Z3L02 & F4_FF0);
+
+
+--U01_lcarry[1] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[1]
+--operation mode is arithmetic
+
+U01_lcarry[1] = CARRY(F5_FF1 & EB1_safe_q[1] & !U01_lcarry[0] # !F5_FF1 & (EB1_safe_q[1] # !U01_lcarry[0]));
+
+
+--F5_FF2 is board:board|reg11:period_reg|FF2
+--operation mode is normal
+
+F5_FF2_lut_out = JB1_dffs[2];
+F5_FF2 = DFFEAS(F5_FF2_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--F1_FF0 is board:board|reg11:aux_length_reg|FF0
+--operation mode is normal
+
+F1_FF0_lut_out = JB1_dffs[0];
+F1_FF0 = DFFEAS(F1_FF0_lut_out, clk, VCC, , W1_w_anode18w[3], , , , );
+
+
+--JB1_dffs[1] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[1]
+--operation mode is normal
+
+JB1_dffs[1]_lut_out = JB1_dffs[0];
+JB1_dffs[1] = DFFEAS(JB1_dffs[1]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--Z3L02 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~252
+--operation mode is arithmetic
+
+Z3L02 = F2_FF0 $ F1_FF0;
+
+--Z3L12 is board:board|sub11:comb_17|lpm_add_sub:lpm_add_sub_component|addcore:adder|a_csnbuffer:result_node|cs_buffer[0]~254
+--operation mode is arithmetic
+
+Z3L12 = CARRY(F1_FF0 # !F2_FF0);
+
+
+--F2_FF1 is board:board|reg11:aux_overlap_reg|FF1
+--operation mode is normal
+
+F2_FF1_lut_out = JB1_dffs[1];
+F2_FF1 = DFFEAS(F2_FF1_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F4_FF0 is board:board|reg11:main_length_reg|FF0
+--operation mode is normal
+
+F4_FF0_lut_out = JB1_dffs[0];
+F4_FF0 = DFFEAS(F4_FF0_lut_out, clk, VCC, , W1_w_anode38w[3], , , , );
+
+
+--U01_lcarry[0] is board:board|counter:count|gte11:detect|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|lcarry[0]
+--operation mode is arithmetic
+
+U01_lcarry[0] = CARRY(F5_FF0 & !U2L5);
+
+
+--F5_FF1 is board:board|reg11:period_reg|FF1
+--operation mode is normal
+
+F5_FF1_lut_out = JB1_dffs[1];
+F5_FF1 = DFFEAS(F5_FF1_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--JB1_dffs[0] is inblock:inblock|sreg16:SHIFT|lpm_shiftreg:lpm_shiftreg_component|dffs[0]
+--operation mode is normal
+
+JB1_dffs[0]_lut_out = serialin;
+JB1_dffs[0] = DFFEAS(JB1_dffs[0]_lut_out, mspclk, VCC, , !nchpsel, , , , );
+
+
+--F2_FF0 is board:board|reg11:aux_overlap_reg|FF0
+--operation mode is normal
+
+F2_FF0_lut_out = JB1_dffs[0];
+F2_FF0 = DFFEAS(F2_FF0_lut_out, clk, VCC, , W1_w_anode28w[3], , , , );
+
+
+--F5_FF0 is board:board|reg11:period_reg|FF0
+--operation mode is normal
+
+F5_FF0_lut_out = JB1_dffs[0];
+F5_FF0 = DFFEAS(F5_FF0_lut_out, clk, VCC, , B1_countload, , , , );
+
+
+--U3_agb_out is board:board|signal:AUXSIG|gt11:srcomp|lpm_compare:lpm_compare_component|comptree:comparator|cmpchain:cmp_end|agb_out
+--operation mode is normal
+
+U3_agb_out = LCELL(GND);
+
+
+--ste is ste
+--operation mode is input
+
+ste = INPUT();
+
+
+--gpio1 is gpio1
+--operation mode is input
+
+gpio1 = INPUT();
+
+
+--gpio2 is gpio2
+--operation mode is input
+
+gpio2 = INPUT();
+
+
+--gpio3 is gpio3
+--operation mode is input
+
+gpio3 = INPUT();
+
+
+--FPGAEnable is FPGAEnable
+--operation mode is input
+
+FPGAEnable = INPUT();
+
+
+--nCurrentFault is nCurrentFault
+--operation mode is input
+
+nCurrentFault = INPUT();
+
+
+--nVoltFault is nVoltFault
+--operation mode is input
+
+nVoltFault = INPUT();
+
+
+--nReg5Fault is nReg5Fault
+--operation mode is input
+
+nReg5Fault = INPUT();
+
+
+--nReg15Fault is nReg15Fault
+--operation mode is input
+
+nReg15Fault = INPUT();
+
+
+--nMSPReset is nMSPReset
+--operation mode is input
+
+nMSPReset = INPUT();
+
+
+--nFPGAReset is nFPGAReset
+--operation mode is input
+
+nFPGAReset = INPUT();
+
+
+--FSReset is FSReset
+--operation mode is input
+
+FSReset = INPUT();
+
+
+--clk is clk
+--operation mode is input
+
+clk = INPUT();
+
+
+--nchpsel is nchpsel
+--operation mode is input
+
+nchpsel = INPUT();
+
+
+--mspclk is mspclk
+--operation mode is input
+
+mspclk = INPUT();
+
+
+--serialin is serialin
+--operation mode is input
+
+serialin = INPUT();
+
+
+--serialout is serialout
+--operation mode is output
+
+serialout = OUTPUT(GND);
+
+
+--LED1 is LED1
+--operation mode is output
+
+LED1 = OUTPUT(comb_8);
+
+
+--LED2 is LED2
+--operation mode is output
+
+LED2 = OUTPUT(A1L11);
+
+
+--nFS is nFS
+--operation mode is output
+
+nFS = OUTPUT(!enable);
+
+
+--aux is aux
+--operation mode is output
+
+aux = OUTPUT(D1L1);
+
+
+--main is main
+--operation mode is output
+
+main = OUTPUT(D3L1);
+
+
+--diode is diode
+--operation mode is output
+
+diode = OUTPUT(GND);
+
+
+--SD is SD
+--operation mode is output
+
+SD = OUTPUT(!B1_enable);
+
+

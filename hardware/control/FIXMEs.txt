@@ -1,0 +1,24 @@
+1. The voltage monitor for the 15V rail is provided by the low battery output of the regulator. At the moment the regulator is hooked up to the 5V rail and therefore isn't providing this protection (it trips at 4.2V). The 15V is measured by the controller, but I suspect its response isn't fast enough.
+   - FIXED:  Added a second comparator to monitor the 15V rail. DS.
+
+2. The input impedance for the MSP430 is way too high. So far I've just checked it on the 15V rail measurement, but its enough to stuff that up by 10% or so. Shorting out the series resistor of the low pass filter seems to help a lot.
+   - NOT FIXED: Leave the design the same. Use different (lower impedance) resistors if necessary.
+
+3. The ADC lines have too high an input impedance. I haven't checked for anything other than 15V, but on that line, it causes an error of ~10% when running at 1kHz.
+   - FIXED: See above.
+
+4. Reduce the range of the ADCs slightly - the cutoff is about 185V at the moment, and should be about 180 or so.
+   - TO BE FIXED BY ADJUSTING THE RESISTOR-DIVIDERS ON THE POWER BOARD
+
+5. Add a pull-down to the FPGAReset line.
+   - FIXED.
+
+6. nSD should actually be SD (its active high, meaning the system is shut down when the signal is high)
+   - FIXED: Was right to start with - just wrong in the FPGA code.
+
+7. The current sense needs to be divided down to 3.3V type levels.
+   - FIXED.
+
+8. The filter cutoffs all need to be calculated and values for the components calculated.
+
+9. The values which the resistor dividers on the power boards should be replaced with should be calculated.
